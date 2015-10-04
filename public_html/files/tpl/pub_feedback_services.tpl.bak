@@ -1,0 +1,62 @@
+<form action="/feedback/services/">
+<table border="0" class='feedback zebra' cellspacing="0" cellpadding="5">
+  <tr>
+    <td width="200" style="width:200px">ФИО</td>
+    <td><input name="ФИО" type="text" id="ФИО" /></td>
+  </tr>
+  <tr>
+    <td>Контактный телефон</td>
+    <td><input name="Контактный телефон" type="text" id="Контактный телефон" /></td>
+  </tr>
+  <tr>
+    <td>Mail, ICQ</td>
+    <td><input name="Mail, ICQ" type="text" id="Mail, ICQ" /></td>
+  </tr>
+  <tr>
+    <td>Место нахождения   клиента
+       </td>
+    <td><label>округ, район,   станция метро</label><input name="Место нахождения клиента" type="text" id="Место нахождения клиента" /></td>
+  </tr>
+  <tr>
+    <td>Удаленность от   метро</td>
+    <td><input name="Удаленность от метро" type="text" id="Удаленность от метро" /></td>
+  </tr>
+  <tr>
+    <td>Требуемые работники   / услуги</td>
+    <td><input name="Требуется" type="text" id="Требуется" /></td>
+  </tr>
+  <tr>
+    <td>Период найма   работников</td>
+    <td><label>день, неделя, месяц,   год и т.д.</label><input name="Период" type="text" id="Период" /></td>
+  </tr>
+  <tr>
+    <td>Планируемый график   работы</td>
+    <td><input name="График" type="text" id="График" /></td>
+  </tr>
+  <tr>
+    <td>Требования к   работнику
+          </td>
+    <td><label>возраст, образование,   навыки, гражданство</label><input name="Требования к работнику" type="text" id="Требования к работнику" /></td>
+  </tr>
+  <tr>
+    <td>Возможность предоставления   жилья</td>
+    <td><input name="Возможность предоставления жилья" type="text" id="Возможность предоставления жилья" /></td>
+  </tr>
+  <tr>
+    <td>Должностные обязанности   работника</td>
+    <td><input name="Обязанности работника" type="text" id="Обязанности работника" /></td>
+  </tr>
+  <tr>
+    <td>Предложение по   стоимости</td>
+    <td><input name="Предложения по стоимости" type="text" id="Предложения по стоимости" /></td>
+  </tr>
+  <tr>
+    <td>Дата начала   работы</td>
+    <td><input name="Дата начала работ" type="text" id="Дата начала работ" /></td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td><input type="submit" value="Отправить" /></td>
+  </tr>
+</table>
+</form>

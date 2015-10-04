@@ -1,0 +1,112 @@
+<form method="post" action="/feedback/seeker/">
+ <table cellpadding="0" class='feedback' cellspacing="0">
+ <tbody>
+ <tr >
+ <td colspan="2" ><strong>ЛИЧНАЯ  ИНФОРМАЦИЯ</strong></td>
+ </tr>
+ <tr >
+ <td width="291" >Ф И О</td>
+ <td><input name="ФИО" type="text" value="{ФИО}" /></td>
+ </tr>
+ <tr >
+ <td >Дата  рождения</td>
+ <td><input name="Дата рождения" type="text" value="{Дата рождения}" /></td>
+ </tr>
+ <tr >
+ <td >Гражданство / Национальность</td>
+ <td><input name="Гражданство" type="text" value="{Гражданство}" /></td>
+ </tr>
+ <tr >
+ <td >Место постоянной регистрации (страна, область, город)</td>
+ <td><input name="Зарегистрирован" type="text" value="{Зарегистрирован}" /></td>
+ </tr>
+ <tr >
+ <td >Район проживания в Москве (ближайшая станция метро)</td>
+ <td><input name="Район проживания" type="text" value="{Район проживания}" /></td>
+ </tr>
+ <tr >
+ <td >Состав  семьи (муж/жена, дети)</td>
+ <td><input name="Семья" type="text" value="{Семья}" /></td>
+ </tr>
+ <tr >
+ <td >Наличие судимости (когда, по какой статье)</td>
+ <td><input name="Судимость" type="text" value="{Судимость}" /></td>
+ </tr>
+ <tr >
+ <td >Контактные  телефоны</td>
+ <td><input name="Контактные телефоны" type="text" value="{Контактные телефоны}" /></td>
+ </tr>
+ <tr >
+ <td >Адрес электронной почты или ICQ</td>
+ <td><input name="email-icq" type="text" value="{email-icq}" /></td>
+ </tr>
+ <tr >
+ <td colspan="2" ><strong>ИНФОРМАЦИЯ  О РАБОТЕ</strong></td>
+ </tr>
+ <tr >
+ <td >Вакансия  (можно указать несколько)</td>
+ <td><input name="Вакансия" type="text" value="{Вакансия}" /></td>
+ </tr>
+ <tr >
+ <td >Районы поиска работы (станции метро)</td>
+ <td><input name="Районы поиска" type="text" value="{Районы поиска}" /></td>
+ </tr>
+ <tr >
+ <td >Желаемый  график работы (дни/часы, вахта)</td>
+ <td><input name="Желаемый график" type="text" value="{Желаемый график}" /></td>
+ </tr>
+ <tr >
+ <td >Необходимость в жилье</td>
+ <td><input name="Необходимость в жилье" type="text" value="{Необходимость в жилье}" /></td>
+ </tr>
+ <tr >
+ <td >Ожидания  по оплате (за 1 месяц / за 1 час)</td>
+ <td><input name="Ожидания по оплате" type="text" value="{Ожидания по оплате}" /></td>
+ </tr>
+ <tr >
+ <td >Образование / специальность</td>
+ <td><input name="Образование" type="text" value="{Образование}" /></td>
+ </tr>
+ <tr >
+ <td >Трудовая  биография (стаж, места работы, должности)</td>
+ <td><textarea name="Трудовая биография" cols="30" rows="3">{Трудовая биография}</textarea></td>
+ </tr>
+ <tr >
+ <td >Опыт  работы, относящийся к данной вакансии (подробно)</td>
+ <td><textarea name="Обыт работы" cols="30" rows="3">{Обыт работы}</textarea></td>
+ </tr>
+ <tr >
+ <td >Профессиональные  навыки, способности, знания </td>
+ <td><textarea name="Проф навыки" cols="30" rows="3" >{Проф навыки}</textarea></td>
+ </tr>
+ <tr >
+ <td >Вероисповедание</td>
+ <td><input name="Вероисповедание" type="text" value="{Вероисповедание}" /></td>
+ </tr>
+ <tr >
+ <td >Личные  качества присущие Вам</td>
+ <td><input name="Личные качества" type="text" value="{Личные качества}" /></td>
+ </tr>
+ <tr >
+ <td >Наличие рекомендаций от работодателей</td>
+ <td><input name="Наличие рекомендация работодателей" type="text" value="{Наличие рекомендация работодателей}" /></td>
+ </tr>
+ <tr >
+ <td >Наличие медицинских ограничений, заболеваний, травм</td>
+ <td><input name="Травмы, заболевания" type="text" value="{Травмы, заболевания}" /></td>
+ </tr>
+ <tr >
+ <td >Наличие вредных привычек (курение, алкоголь и др.)</td>
+ <td><input name="Вредные привычки" type="text" value="{Вредные привычки}" /></td>
+ </tr>
+ <tr >
+ <td >Дополнительная  информация </td>
+ <td><textarea name="Дополнительно" cols="30" rows="3">{Дополнительно}</textarea></td>
+ </tr>
+ <tr>
+    <td scope="row"> </td>
+    <td><input type="submit" value="Отправить" /></td>
+  </tr>
+ </tbody>
+ </table>
+</form>
