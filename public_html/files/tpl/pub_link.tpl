@@ -1,1 +1,0 @@
-<li><a href="/page/{parent}/{id}/" title="{name}">{page}</a></li>

@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=taggerd.su;dbname=palmengi_viktor',
+    'dsn' => 'mysql:host=localhost;dbname=cms',
     'username' => 'palmengi_clients',
     'password' => 'mazikin8926152',
     'charset' => 'utf8',

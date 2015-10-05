@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {    
     public function actionIndex()
     {
-        return $this->redirect(['mode/index']);
+        return $this->render('index');
     }
 }

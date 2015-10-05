@@ -37,9 +37,11 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'suffix' => '/',
             'rules' => [
                 'login' => 'site/login',
                 'logout' => 'site/logout',
+                'info/<alias>' => 'site/info',
             ]
         ],
         'log' => [
@@ -80,5 +82,4 @@ if (YII_ENV_DEV) {
     $config['modules']['gii']['class'] = 'yii\gii\Module';
     $config['modules']['gii']['allowedIPs'] = ['127.0.0.1', '::1', '192.168.0.80'];
 }
-
 return $config;

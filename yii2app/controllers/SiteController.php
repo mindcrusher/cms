@@ -4,41 +4,14 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-use yii\helpers\Json;
-use yii\i18n\Formatter;
 use yii\web\HttpException;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\CalcMode;
-use app\models\CalcModificationsGroups;
-use app\models\CalcSettings;
+use app\models\Pages;
 
 class SiteController extends Controller
 {
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
 
     public function actions()
     {
@@ -56,25 +29,30 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
-        }
+    }
+
+    public function actionInfo($alias)
+    {
+        $page = Pages::findOne(['alias' => $alias]);
+        return $this->render('info',[
+            'page' => $page,
+        ]);
     }
     
     public function actionLogin()
     {
-        if (!\Yii::$app->user->isGuest) {
-            return $this->redirect(['/admin/mode/index']);
-        }
 
         $model = new LoginForm();
+
         if ($model->load(Yii::$app->request->post()) || $model->login()) {
-            return $this->redirect(['/admin/mode/index']);
+            return $this->redirect(['/admin/']);
         } else {
-            throw new HttpException(403);
-            /*
+            //throw new HttpException(403);
+
             return $this->render('login', [
                 'model' => $model,
             ]);
-            */
+
         }
     }
 

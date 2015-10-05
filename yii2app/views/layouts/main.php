@@ -22,35 +22,17 @@ AppAsset::register($this);
 
 <?php $this->beginBody() ?>
     <div style="padding-top:60px" class="wrap">
-        <?php
-            if(!Yii::$app->user->isGuest) {
-                NavBar::begin([
-                    'brandLabel' => 'Администрирование сайта',
-                    'brandUrl' => Url::to('/cms/'),
-                    'options' => [
-                        'class' => 'navbar-inverse navbar-fixed-top',
-                    ],
-                ]);
-                echo Nav::widget([
-                    'options' => ['class' => 'navbar-nav navbar-right'],
-                    'items' => [
-                        ['label' => 'Базовый тариф', 'url' => ['/admin/mode/index']],
-                        ['label' => 'Опции', 'url' => ['/admin/modifications/index']],
-                        ['label' => 'Группы опций', 'url' => ['/admin/groups/index']],
-                        ['label' => 'Тариф', 'url' => ['/admin/tax/index']],
-                        ['label' => 'Настройки', 'url' => ['/admin/settings/index']],
-                    ],
-                ]);
-                NavBar::end();
-            }
-        ?>
-
+        <div class="container">
+            <?php
+            $menu = Yii::$app->controller->menu[2]['links'] ;
+            echo yii\widgets\Menu::widget($menu);
+            ?>
+        </div>
         <div class="container">
                 <?= Breadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ]) ?>
                 <?= $content ?>
-            
         </div>
     </div>
 
