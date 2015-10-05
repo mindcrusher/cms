@@ -8,13 +8,13 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules' => [
-        'admin' => [
+        'cms' => [
             'class' => 'app\modules\admin\Module',
         ],
         'redactor' => [
             'class' => 'yii\redactor\RedactorModule',
-            'uploadDir' => '@webroot/path/to/uploadfolder',
-            'uploadUrl' => '@web/path/to/uploadfolder',
+            'uploadDir' => '@webroot/files/storage/images/',
+            'uploadUrl' => '@web/files/storage/images/',
             'imageAllowExtensions'=>['jpg','png','gif']
         ],
     ],
