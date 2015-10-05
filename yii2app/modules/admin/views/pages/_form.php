@@ -16,7 +16,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 5]) ?>
 
-    <?= $form->field($model, 'text')->textarea(['rows' => 8]) ?>
     <?= $form->field($model, 'text')->widget(\yii\redactor\widgets\Redactor::className()) ?>
 
     <?= $form->field($model, 'is_active')->checkbox() ?>
