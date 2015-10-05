@@ -11,6 +11,12 @@ $config = [
         'admin' => [
             'class' => 'app\modules\admin\Module',
         ],
+        'redactor' => [
+            'class' => 'yii\redactor\RedactorModule',
+            'uploadDir' => '@webroot/path/to/uploadfolder',
+            'uploadUrl' => '@web/path/to/uploadfolder',
+            'imageAllowExtensions'=>['jpg','png','gif']
+        ],
     ],
     'components' => [
         'request' => [

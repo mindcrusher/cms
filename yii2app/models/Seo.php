@@ -53,7 +53,7 @@ class Seo extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPages()
+    public function getPage()
     {
         return $this->hasOne(Pages::className(), ['id' => 'page_id']);
     }

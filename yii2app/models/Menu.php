@@ -5,17 +5,14 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "menu".
+ * This is the model class for table "menu_groups".
  *
  * @property integer $id
  * @property string $name
- * @property integer $group_id
- * @property integer $page_id
  * @property integer $is_active
- * @property integer $sort
+ * @property integer $display_name
  *
- * @property Pages $page
- * @property MenuGroups $group
+ * @property Menu[] $menus
  */
 class Menu extends \yii\db\ActiveRecord
 {
@@ -33,10 +30,8 @@ class Menu extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['group_id', 'page_id'], 'required'],
-            [['group_id', 'page_id', 'is_active', 'sort'], 'integer'],
-            [['name'], 'string', 'max' => 45],
-            [['group_id', 'page_id'], 'unique', 'targetAttribute' => ['group_id', 'page_id'], 'message' => 'The combination of Группа and Страница has already been taken.']
+            [['is_active', 'display_name'], 'integer'],
+            [['name'], 'string', 'max' => 45]
         ];
     }
 
@@ -47,27 +42,29 @@ class Menu extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Текст ссылки',
-            'group_id' => 'Группа',
-            'page_id' => 'Страница',
+            'name' => 'Название группы',
             'is_active' => 'Активна',
-            'sort' => 'Сортировка',
+            'display_name' => 'Отображать название',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPage()
+    public function getLinks()
     {
-        return $this->hasOne(Pages::className(), ['id' => 'page_id']);
+        return $this->hasMany(MenuRelations::className(), ['menu_id' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getGroup()
+    public function getFreeLinks()
     {
-        return $this->hasOne(MenuGroups::className(), ['id' => 'group_id']);
+        return Links::find()
+            ->joinWith('menu')
+            ->where('links.id not in ( select link_id from menu_relations where menu_id = :id)', [':id' => $this->id])
+            ->groupBy('links.name')
+            //->orderBy('links.name')
+            ->select(['links.id as value', 'name as  label','links.id'])
+            ->asArray()
+            ->all();
     }
 }

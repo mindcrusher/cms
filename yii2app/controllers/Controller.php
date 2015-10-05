@@ -8,7 +8,7 @@
 
 namespace app\controllers;
 
-use app\models\MenuGroups;
+use app\models\Menu;
 
 class Controller extends \yii\web\Controller
 {
@@ -16,11 +16,12 @@ class Controller extends \yii\web\Controller
 
     public function init()
     {
-        $groups = MenuGroups::findAll(['is_active' => 1]);
+        $groups = Menu::find()->joinWith('links')->where(['is_active' => 1])->all();
+
         foreach ($groups as $group) {
             $items = [];
-            foreach($group->menu as $link) {
-                $items[] = ['label' => $link->name, 'url' => ['site/info', 'alias' => $link->page->alias]];
+            foreach($group->links as $item) {
+                $items[] = ['label' => $item->link->name, 'url' => ['site/info', 'alias' => $item->link->alias]];
             }
 
             $this->menu[$group->id] = [

@@ -8,7 +8,6 @@ use Yii;
  * This is the model class for table "pages".
  *
  * @property integer $id
- * @property string $alias
  * @property string $title
  * @property string $description
  * @property string $text
@@ -38,7 +37,7 @@ class Pages extends \yii\db\ActiveRecord
             [['text'], 'string'],
             [['is_active'], 'integer'],
             [['created_time', 'updated_time'], 'safe'],
-            [['alias', 'title', 'description'], 'string', 'max' => 255]
+            [['title', 'description'], 'string', 'max' => 255]
         ];
     }
 
@@ -49,7 +48,6 @@ class Pages extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'alias' => 'ЧПУ',
             'title' => 'Заголовок',
             'description' => 'Описание',
             'text' => 'Текст',
@@ -62,16 +60,25 @@ class Pages extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getMenus()
+    public function getLinks()
     {
-        return $this->hasMany(Menu::className(), ['page_id' => 'id']);
+        return $this->hasMany(Links::className(), ['page_id' => 'id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getId0()
+    public function getSeo()
     {
         return $this->hasOne(Seo::className(), ['page_id' => 'id']);
+    }
+
+    public function getFree()
+    {
+        return $this->find()
+            ->joinWith('links')
+            ->where('links.id is null')
+            ->orWhere('links.id = :id', [':id' => $this->id])
+            ->all();
     }
 }

@@ -4,7 +4,6 @@ namespace app\modules\admin\controllers;
 
 use Yii;
 use app\models\CalcSettings;
-use yii\data\ActiveDataProvider;
 use app\modules\admin\components\Controller;
 use yii\web\NotFoundHttpException;
 

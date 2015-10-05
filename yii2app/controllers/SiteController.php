@@ -2,13 +2,14 @@
 
 namespace app\controllers;
 
+use app\models\Links;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\HttpException;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\Pages;
+use app\models\Menu;
 
 class SiteController extends Controller
 {
@@ -33,9 +34,9 @@ class SiteController extends Controller
 
     public function actionInfo($alias)
     {
-        $page = Pages::findOne(['alias' => $alias]);
+        $link = Links::findOne(['alias' => $alias]);
         return $this->render('info',[
-            'page' => $page,
+            'page' => $link->page,
         ]);
     }
     
@@ -43,8 +44,7 @@ class SiteController extends Controller
     {
 
         $model = new LoginForm();
-
-        if ($model->load(Yii::$app->request->post()) || $model->login()) {
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->redirect(['/admin/']);
         } else {
             //throw new HttpException(403);

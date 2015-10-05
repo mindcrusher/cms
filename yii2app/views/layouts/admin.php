@@ -35,8 +35,9 @@ AppAsset::register($this);
                     'options' => ['class' => 'navbar-nav navbar-right'],
                     'items' => [
                         ['label' => 'Наполнение', 'items' => [
-                            ['label' => 'Страницы', 'url' => ['/admin/content/index']],
+                            ['label' => 'Страницы', 'url' => ['/admin/pages/index']],
                             ['label' => 'SEO', 'url' => ['/admin/seo/index']],
+                            ['label' => 'Ссылки', 'url' => ['/admin/links/index']],
                             ['label' => 'Меню', 'url' => ['/admin/menu/index']],
                             ['label' => 'Перенаправление страниц', 'url' => ['/admin/redirect/index']],
                         ]],

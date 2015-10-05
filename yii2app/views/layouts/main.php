@@ -23,21 +23,38 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
     <div style="padding-top:60px" class="wrap">
         <div class="container">
+            <div class="col-sm-12">
             <?php
             $menu = Yii::$app->controller->menu[2]['links'] ;
             echo yii\widgets\Menu::widget($menu);
             ?>
+            </div>
         </div>
         <div class="container">
+            <div class="col-sm-4">
+                <?php
+                $menu = Yii::$app->controller->menu[4]['links'] ;
+                echo yii\widgets\Menu::widget($menu);
+                ?>
+            </div>
+            <div class="col-sm-8">
                 <?= Breadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ]) ?>
                 <?= $content ?>
+            </div>
+
         </div>
     </div>
 
     <footer class="footer">
         <div class="container">
+            <div class="col-sm-12">
+            <?php
+            $menu = Yii::$app->controller->menu[5]['links'] ;
+            echo yii\widgets\Menu::widget($menu);
+            ?>
+            </div>
         </div>
     </footer>
 <?php $this->endBody() ?>
