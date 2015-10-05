@@ -15,7 +15,7 @@ use app\models\CalcMode;
 use app\models\CalcModificationsGroups;
 use app\models\CalcSettings;
 
-class SiteController extends Controller
+class CalculatorController extends Controller
 {
     public function behaviors()
     {
