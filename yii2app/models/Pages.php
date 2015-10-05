@@ -75,10 +75,10 @@ class Pages extends \yii\db\ActiveRecord
 
     public function getFree()
     {
-        return $this->find()
-            ->joinWith('links')
-            ->where('links.id is null')
-            ->orWhere('links.id = :id', [':id' => $this->id])
+        return self::find()
+            ->joinWith('seo')
+            ->where('seo.id is null')
+            ->asArray()
             ->all();
     }
 }

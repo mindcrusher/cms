@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'to')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'status_code')->dropDownList([ 301 => '301', 302 => '302', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'status_code')->dropDownList([ 301 => '301', 302 => '302', ]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

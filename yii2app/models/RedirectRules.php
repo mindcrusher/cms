@@ -30,7 +30,8 @@ class RedirectRules extends \yii\db\ActiveRecord
         return [
             [['status_code'], 'string'],
             [['from', 'to'], 'string', 'max' => 255],
-            [['from'], 'unique']
+            [['from'], 'unique'],
+            [['from','to'], 'required']
         ];
     }
 

@@ -33,10 +33,10 @@ class Links extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['group_id', 'page_id'], 'required'],
-            [['group_id', 'page_id', 'is_active', 'sort'], 'integer'],
+            [['page_id'], 'required'],
+            [['page_id', 'is_active', 'sort'], 'integer'],
             [['name'], 'string', 'max' => 45],
-            [['group_id', 'page_id'], 'unique', 'targetAttribute' => ['group_id', 'page_id'], 'message' => 'The combination of Группа and Страница has already been taken.']
+            [['page_id'], 'unique', 'targetAttribute' => ['page_id'], 'message' => 'Такая страница уже занята']
         ];
     }
 
@@ -48,7 +48,6 @@ class Links extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Текст ссылки',
-            'group_id' => 'Группа',
             'page_id' => 'Страница',
             'is_active' => 'Активна',
             'sort' => 'Сортировка',

@@ -22,7 +22,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             'id',
             'name',
-            'is_active',
+            [
+                'attribute' => 'is_active',
+                'value' => function($model) {
+                    return $model->is_active ? 'Да' : 'Нет';
+                }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

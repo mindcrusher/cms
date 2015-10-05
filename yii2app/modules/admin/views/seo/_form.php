@@ -6,7 +6,9 @@ use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model app\models\Seo */
 /* @var $form yii\widgets\ActiveForm */
-$data = ArrayHelper::map($model->pages->getFree(),'id','title');
+
+$page = new \app\models\Pages();
+$data = ArrayHelper::map($page->getFree(),'id','title');
 ?>
 
 <div class="seo-form">

@@ -17,4 +17,13 @@ return [
     'Create' => 'Создать',
     'Update' => 'Изменить',
     'Delete' => 'Удалить',
+    'Menus' => 'Меню',
+    'Links' => 'Ссылки',
+    'Create Links' => 'Добавить',
+    'Pages' => 'Страницы',
+    'Create Pages' => 'Создать',
+    'Create Seo' => 'Создать правило',
+    'Seo' => 'SEO',
+    'Redirect Rules' => 'Перенаправление страниц',
+    'Create Redirect Rules' => 'Создать правило',
 ];

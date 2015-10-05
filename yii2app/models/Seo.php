@@ -32,6 +32,7 @@ class Seo extends \yii\db\ActiveRecord
     {
         return [
             [['page_id'], 'integer'],
+            [['page_id',], 'unique'],
             [['title', 'description', 'keywords'], 'string', 'max' => 255]
         ];
     }

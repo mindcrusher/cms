@@ -31,7 +31,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'description',
-            'text:ntext',
+            [
+                'attribute' => 'text',
+                'format'=>'raw',
+            ],
             'is_active',
             'created_time',
             'updated_time',
