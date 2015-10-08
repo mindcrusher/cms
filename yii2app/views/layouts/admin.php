@@ -39,7 +39,7 @@ AppAsset::register($this);
                             ['label' => 'SEO', 'url' => ['/cms/seo/index']],
                             ['label' => 'Ссылки', 'url' => ['/cms/links/index']],
                             ['label' => 'Меню', 'url' => ['/cms/menu/index']],
-                            ['label' => 'Перенаправление страниц', 'url' => ['/admin/redirect/index']],
+                            ['label' => 'Перенаправление страниц', 'url' => ['/cms/redirect/index']],
                         ]],
                         ['label' => 'Калькулятор', 'items' => [
                                 ['label' => 'Базовый тариф', 'url' => ['/cms/mode/index']],

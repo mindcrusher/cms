@@ -16,8 +16,8 @@ $config = [
         ],
         'redactor' => [
             'class' => 'yii\redactor\RedactorModule',
-            'uploadDir' => '@webroot/files/storage/images/',
-            'uploadUrl' => '@web/files/storage/images/',
+            'uploadDir' => '@webroot/files/storage/images',
+            'uploadUrl' => '@web/files/storage/images',
             'imageAllowExtensions'=>['jpg','png','gif']
         ],
     ],
