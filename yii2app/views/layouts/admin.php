@@ -35,18 +35,18 @@ AppAsset::register($this);
                     'options' => ['class' => 'navbar-nav navbar-right'],
                     'items' => [
                         ['label' => 'Наполнение', 'items' => [
-                            ['label' => 'Страницы', 'url' => ['/admin/pages/index']],
-                            ['label' => 'SEO', 'url' => ['/admin/seo/index']],
-                            ['label' => 'Ссылки', 'url' => ['/admin/links/index']],
-                            ['label' => 'Меню', 'url' => ['/admin/menu/index']],
+                            ['label' => 'Страницы', 'url' => ['/cms/pages/index']],
+                            ['label' => 'SEO', 'url' => ['/cms/seo/index']],
+                            ['label' => 'Ссылки', 'url' => ['/cms/links/index']],
+                            ['label' => 'Меню', 'url' => ['/cms/menu/index']],
                             ['label' => 'Перенаправление страниц', 'url' => ['/admin/redirect/index']],
                         ]],
                         ['label' => 'Калькулятор', 'items' => [
-                                ['label' => 'Базовый тариф', 'url' => ['/admin/mode/index']],
-                                ['label' => 'Опции', 'url' => ['/admin/modifications/index']],
-                                ['label' => 'Группы опций', 'url' => ['/admin/groups/index']],
-                                ['label' => 'Тариф', 'url' => ['/admin/tax/index']],
-                                ['label' => 'Настройки', 'url' => ['/admin/settings/index']],
+                                ['label' => 'Базовый тариф', 'url' => ['/cms/mode/index']],
+                                ['label' => 'Опции', 'url' => ['/cms/modifications/index']],
+                                ['label' => 'Группы опций', 'url' => ['/cms/groups/index']],
+                                ['label' => 'Тариф', 'url' => ['/cms/tax/index']],
+                                ['label' => 'Настройки', 'url' => ['/cms/settings/index']],
                             ],
                         ],
 
