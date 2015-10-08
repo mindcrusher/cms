@@ -11,6 +11,9 @@ $config = [
         'cms' => [
             'class' => 'app\modules\admin\Module',
         ],
+        'calc' => [
+            'class' => 'app\modules\calculator\Module',
+        ],
         'redactor' => [
             'class' => 'yii\redactor\RedactorModule',
             'uploadDir' => '@webroot/files/storage/images/',
@@ -19,6 +22,9 @@ $config = [
         ],
     ],
     'components' => [
+        'assetManager' => [
+            'linkAssets' => true,
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'jOgCCKREGYoAUMOxGhDzUcLrabftZRxO',

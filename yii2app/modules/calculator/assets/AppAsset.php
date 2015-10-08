@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace app\assets;
+namespace app\modules\calculator\assets;
 
 use yii\web\AssetBundle;
 
@@ -15,18 +15,28 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
-    public $css = [
+    public $sourcePath = '@app/modules/calculator/assets/files';
 
+    public $css = [
+        'css/style.css'
     ];
-    public $js = [];
+
+    public $js = [
+        'js/app.js',
+        'http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+    ];
     
     public $jsOptions = [
-
+        'position' => \yii\web\View::POS_END,
     ];
+
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
     ];
+
+    public $publishOptions = [
+        'forceCopy'=>true,
+    ];
+
 }

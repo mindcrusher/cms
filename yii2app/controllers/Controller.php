@@ -21,7 +21,7 @@ class Controller extends \yii\web\Controller
         foreach ($groups as $group) {
             $items = [];
             foreach($group->links as $item) {
-                $items[] = ['label' => $item->link->name, 'url' => ['site/info', 'alias' => $item->link->alias]];
+                $items[] = ['label' => $item->link->name, 'url' => $item->link->getUrl()];
             }
 
             $this->menu[$group->id] = [

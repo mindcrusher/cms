@@ -7,11 +7,11 @@ $(function(){
     var preloader = $("#preloader");
     var ajaxResult = $('#ajaxResult');
     var modeSelect = $('input[name=mode]');
-    
+
     modeSelect.change(function(){
         calcButton.removeAttr('disabled');
     });
-    
+
     showOptionsButton.click(function(){
         if(calcButton.attr('disabled')) {
             alert("Пожалуйста, вначале выберите базовый тариф!");
@@ -29,11 +29,11 @@ $(function(){
             return text;
         });
     });
-    
+
     calcButton.click(function(){
         preloader.removeClass('hide');
         ajaxResult.addClass('hide');
-        
+
         data = $('#calcForm').serialize();
         $.ajax({
             type: "POST",
@@ -45,7 +45,7 @@ $(function(){
                 $('#success').removeClass('hide');
                 ajaxResult.removeClass('hide');
                 preloader.addClass('hide');
-                
+
                 location.hash = 'ajaxResult';
             },
             dataType: 'json'

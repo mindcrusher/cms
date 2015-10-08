@@ -1,8 +1,10 @@
 <?php
 use yii\bootstrap\ActiveForm;
+use app\modules\calculator\assets\AppAsset;
+
+AppAsset::register($this);
+
 $this->title = $settings->calc_header;
-$this->registerJsFile('http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js');
-$this->registerJsFile('/calc/js/app.js');
 $form = ActiveForm::begin([
         'id' => 'calcForm',
         'action' => \yii\helpers\Url::to('site/calculate')
@@ -60,8 +62,8 @@ $form = ActiveForm::begin([
                                         'disabled' => 'disabled',
                                     ]); ?>
                 </div>
-                <div class='col-sm-6'>
-                    <div id='preloader' class='hide'><img src="/calc/img/ajax-loader.gif"/></div>
+                <div class=col-sm-6'>
+                    <div id='preloader' class='hide'><div class="calculator-loader"></div></div>
                     <div id="ajaxResult"></div>
                 </div>
             </div>
