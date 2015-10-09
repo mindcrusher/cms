@@ -40,7 +40,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => '\dektrium\user\models\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -51,7 +51,7 @@ $config = [
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
-            'useFileTransport' => true,
+            //'useFileTransport' => true,
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -59,8 +59,8 @@ $config = [
             'enableStrictParsing' => false,
             'suffix' => '/',
             'rules' => [
-                'login' => 'site/login',
-                'logout' => 'site/logout',
+                'login' => '/user/security/login',
+                'logout' => '/user/security/logout',
                 'info/<alias>' => 'site/info',
             ]
         ],
@@ -79,7 +79,7 @@ $config = [
                 'app*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@app/messages',
-                    //'sourceLanguage' => 'ru-RU',
+                    'sourceLanguage' => 'ru-RU',
                     'fileMap' => [
                         'app' => 'app.php',
                     //    'app/error' => 'error.php',
@@ -95,6 +95,7 @@ $config = [
         return \app\components\PreRequest::control();
     },
 ];
+
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
