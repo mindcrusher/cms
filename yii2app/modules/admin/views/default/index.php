@@ -6,43 +6,38 @@
     </div>
 
     <div class="col-sm-4">
-        <h3><?= Yii::t('app', 'SEO') ?></h3>
-        <?= \yii\bootstrap\Html::a('Перейти в раздел',['seo/index']);?>
+        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'SEO'),['seo/index']); ?></h3>
     </div>
     <div class="col-sm-4">
-        <h3><?= Yii::t('app', 'Menu') ?></h3>
-        <?= \yii\bootstrap\Html::a('Перейти в раздел',['menu/index']);?>
+        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Menu'),['menu/index']);?></h3>
+
     </div>
     <div class="col-sm-4">
-        <h3><?= Yii::t('app', 'Links') ?></h3>
-        <?= \yii\bootstrap\Html::a('Перейти в раздел',['pages/index']);?>
+        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Links'),['pages/index']);?></h3>
+
     </div>
     <div class="col-sm-4">
-        <h3><?= Yii::t('app', 'Redirect Rules') ?></h3>
-        <?= \yii\bootstrap\Html::a('Перейти в раздел',['seo/index']);?>
+        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Redirect Rules'),['seo/index']);?></h3>
     </div>
 </div>
 
 <h1>Настройки калькулятора</h1>
 <div class="row">
     <div class="col-sm-4">
-        <h3><?= Yii::t('app', 'Настройка тарифа') ?></h3>
-        <?= \yii\bootstrap\Html::a('Перейти в раздел',['mode/index']);?>
+        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Calc Modes'),['mode/index']);?></h3>
+
     </div>
     <div class="col-sm-4">
-        <h3><?= Yii::t('app', 'Список опций') ?></h3>
-        <?= \yii\bootstrap\Html::a('Перейти в раздел',['modifications/index']);?>
+        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Calc Modifications'),['modifications/index']);?></h3>
     </div>
     <div class="col-sm-4">
-        <h3><?= Yii::t('app', 'Группы опций') ?></h3>
-        <?= \yii\bootstrap\Html::a('Перейти в раздел',['groups/index']);?>
+        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Calc Modifications Groups'),['groups/index']);?></h3>
     </div>
     <div class="col-sm-4">
-        <h3><?= Yii::t('app', 'Тариф') ?></h3>
-        <?= \yii\bootstrap\Html::a('Перейти в раздел',['tax/index']);?>
+        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Calc Taxes'),['tax/index']);?></h3>
+
     </div>
     <div class="col-sm-4">
-        <h3><?= Yii::t('app', 'Установки') ?></h3>
-        <?= \yii\bootstrap\Html::a('Перейти в раздел',['settings/index']);?>
+        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Calc Settings'),['settings/index']);?></h3>
     </div>
 </div>
