@@ -22,10 +22,10 @@ $config = [
         ],
         'user' => [
             'class' => 'dektrium\user\Module',
-            'enableUnconfirmedLogin' => true,
+            'enableUnconfirmedLogin' => false,
             'confirmWithin' => 1,
             'cost' => 12,
-            'admins' => ['admin']
+            'admins' => ['admin','ivan']
         ],
     ],
     'components' => [
