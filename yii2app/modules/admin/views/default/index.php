@@ -11,7 +11,7 @@
     </div>
     <div class="col-sm-4">
         <h3><?= Yii::t('app', 'Menu') ?></h3>
-        <?= \yii\bootstrap\Html::a('Перейти в раздел',['Menu/index']);?>
+        <?= \yii\bootstrap\Html::a('Перейти в раздел',['menu/index']);?>
     </div>
     <div class="col-sm-4">
         <h3><?= Yii::t('app', 'Links') ?></h3>
