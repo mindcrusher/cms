@@ -6,7 +6,7 @@
  * Time: 22:13
  */
 
-namespace app\controllers;
+namespace app\components;
 
 use app\models\Menu;
 

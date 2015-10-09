@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Links;
+use app\components\Controller;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\HttpException;
@@ -13,7 +14,7 @@ use app\models\Menu;
 
 class SiteController extends Controller
 {
-
+    public $layout = '/under_construction';
     public function actions()
     {
         return [
@@ -42,10 +43,10 @@ class SiteController extends Controller
     
     public function actionLogin()
     {
-
+        $this->layout = '/main';
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect(['/admin/']);
+            return $this->redirect(['/cms/']);
         } else {
             //throw new HttpException(403);
 

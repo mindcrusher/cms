@@ -47,4 +47,16 @@ class RedirectRules extends \yii\db\ActiveRecord
             'status_code' => 'Код заголовка',
         ];
     }
+
+    public static function getSource($from)
+    {
+        return self::findOne(['from' => '/' . $from]);
+    }
+
+    public function getDestination()
+    {
+        $to = ltrim($this->to, '/');
+
+        return $to;
+    }
 }

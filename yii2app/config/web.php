@@ -49,6 +49,7 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => false,
             'suffix' => '/',
             'rules' => [
                 'login' => 'site/login',
@@ -83,6 +84,9 @@ $config = [
         'db' => require(__DIR__ . '/db.php'),
     ],
     'params' => $params,
+    'on beforeRequest' => function( ) {
+        return \app\components\PreRequest::control();
+    },
 ];
 
 if (YII_ENV_DEV) {

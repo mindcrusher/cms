@@ -7,7 +7,7 @@ use yii\filters\AccessControl;
 use yii\helpers\Json;
 use yii\i18n\Formatter;
 use yii\web\HttpException;
-use app\controllers\Controller;
+use app\components\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
