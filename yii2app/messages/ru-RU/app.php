@@ -18,6 +18,7 @@ return [
     'Update' => 'Изменить',
     'Delete' => 'Удалить',
     'Menus' => 'Меню',
+    'Menu' => 'Меню',
     'Links' => 'Ссылки',
     'Create Links' => 'Добавить',
     'Pages' => 'Страницы',
