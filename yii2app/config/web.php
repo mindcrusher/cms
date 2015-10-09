@@ -20,6 +20,13 @@ $config = [
             'uploadUrl' => '@web/files/storage/images/',
             'imageAllowExtensions'=>['jpg','png','gif']
         ],
+        'user' => [
+            'class' => 'dektrium\user\Module',
+            'enableUnconfirmedLogin' => true,
+            'confirmWithin' => 1,
+            'cost' => 12,
+            'admins' => ['admin']
+        ],
     ],
     'components' => [
         'assetManager' => [

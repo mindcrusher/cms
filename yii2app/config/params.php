@@ -2,5 +2,5 @@
 
 return [
     'adminEmail' => 'sid@feelthedrive.ru',
-    'isUnderConstruction' => true,
+    'isUnderConstruction' => false,
 ];

@@ -23,18 +23,12 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
     <div style="padding-top:60px" class="wrap">
         <div class="container">
-            <div class="col-sm-12">
-            <?php
-            $menu = Yii::$app->controller->menu[2]['links'] ;
-            echo yii\widgets\Menu::widget($menu);
-            ?>
-            </div>
-        </div>
-        <div class="container">
             <div class="col-sm-4">
                 <?php
-                $menu = Yii::$app->controller->menu[4]['links'] ;
-                echo yii\widgets\Menu::widget($menu);
+                if(!empty(Yii::$app->controller->menu)) {
+                    $menu = Yii::$app->controller->menu[4]['links'] ;
+                    echo yii\widgets\Menu::widget($menu);
+                }
                 ?>
             </div>
             <div class="col-sm-8">
@@ -50,10 +44,7 @@ AppAsset::register($this);
     <footer class="footer">
         <div class="container">
             <div class="col-sm-12">
-            <?php
-            $menu = Yii::$app->controller->menu[5]['links'] ;
-            echo yii\widgets\Menu::widget($menu);
-            ?>
+
             </div>
         </div>
     </footer>
