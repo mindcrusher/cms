@@ -1,8 +1,8 @@
 <h1>Управление контентом</h1>
 <div class="row">
     <div class="col-sm-4">
-        <h3><?= Yii::t('app', 'Pages') ?></h3>
-        <?= \yii\bootstrap\Html::a('Перейти в раздел',['pages/index']);?>
+        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Pages'),['pages/index']);?></h3>
+        Управление страницами сайта
     </div>
 
     <div class="col-sm-4">
