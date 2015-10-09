@@ -19,11 +19,14 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 <div style="padding-top:60px" class="wrap">
     <noindex>
-        <div class="col-sm-5"></div>
-        <div class="col-sm-2">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
             <h2 class="text-center">Сайт находится в разработке</h2>
+            <?php
+            echo Yii::$app->controller->action->id == 'login' ? $content : '';
+            ?>
         </div>
-        <div class="col-sm-5"></div>
+        <div class="col-sm-3"></div>
     </noindex>
 </div>
 <?php $this->endBody() ?>

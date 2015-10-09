@@ -14,7 +14,6 @@ use app\models\Menu;
 
 class SiteController extends Controller
 {
-    public $layout = '/under_construction';
     public function actions()
     {
         return [
@@ -43,7 +42,6 @@ class SiteController extends Controller
     
     public function actionLogin()
     {
-        $this->layout = '/main';
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->redirect(['/cms/']);
@@ -76,10 +74,5 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
-    }
-
-    public function actionAbout()
-    {
-        return $this->render('about');
     }
 }

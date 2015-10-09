@@ -49,6 +49,11 @@ AppAsset::register($this);
                                 ['label' => 'Настройки', 'url' => ['/cms/settings/index']],
                             ],
                         ],
+                        Yii::$app->user->isGuest ?
+                            '' :
+                            ['label' => 'Выйти',
+                                'url' => ['/logout'],
+                                'linkOptions' => ['data-method' => 'post']],
 
                 ]]);
                 NavBar::end();

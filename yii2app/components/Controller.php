@@ -16,6 +16,10 @@ class Controller extends \yii\web\Controller
 
     public function init()
     {
+        if(\Yii::$app->params['isUnderConstruction']) {
+            $this->layout = '/under_construction';
+        }
+
         $groups = Menu::find()->joinWith('links')->where(['is_active' => 1])->all();
 
         foreach ($groups as $group) {
