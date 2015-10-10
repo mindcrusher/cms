@@ -3,13 +3,13 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "menu".
  *
  * @property integer $id
  * @property string $name
- * @property integer $group_id
  * @property integer $page_id
  * @property integer $is_active
  * @property integer $sort
@@ -36,7 +36,6 @@ class Links extends \yii\db\ActiveRecord
             [['page_id'], 'required'],
             [['page_id', 'is_active', 'sort'], 'integer'],
             [['name'], 'string', 'max' => 45],
-            [['page_id'], 'unique', 'targetAttribute' => ['page_id'], 'message' => 'Такая страница уже занята']
         ];
     }
 
@@ -74,5 +73,21 @@ class Links extends \yii\db\ActiveRecord
     public function getMenu()
     {
         return $this->hasOne(MenuRelations::className(), ['link_id' => 'id']);
+    }
+
+    public function beforeSave( $insert )
+    {
+        $alias = \app\components\Helper::translit($this->name);
+
+        if(!empty($this->alias)) {
+            $r = new RedirectRules();
+            $r->from = Url::to($this->getUrl());
+            $this->alias = $alias;
+            $r->to = Url::to($this->getUrl());
+            $r->save();
+        } else {
+            $this->alias = $alias;
+        }
+        return true;
     }
 }

@@ -31,7 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'alias',
-            'group_id',
             'page_id',
             'is_active',
             'sort',
