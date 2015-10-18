@@ -14,6 +14,9 @@ $config = [
         'calc' => [
             'class' => 'app\modules\calculator\Module',
         ],
+         'treemanager' =>  [
+            'class' => '\kartik\tree\Module',
+        ],
         'redactor' => [
             'class' => 'yii\redactor\RedactorModule',
             'uploadDir' => '@webroot/files/storage/images/',
