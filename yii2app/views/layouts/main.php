@@ -20,27 +20,7 @@ AppAsset::register($this);
 
 <?php $this->beginBody() ?>
     <div class="container">
-        <div class="hidden-sm">
-            <?php
-            echo raoul2000\widget\slideout\Slideout::widget([
-                'pluginOptions' => [
-                    'panel' =>  new yii\web\JsExpression("document.getElementById('panel')"),
-                    'menu' => new yii\web\JsExpression("document.getElementById('menu')"),
-                    'padding' => 256,
-                    'tolerance' => 70
-                ]
-            ]);
 
-            ?>
-            <nav id="menu">
-                <header>
-                    <span class="h2">Главное меню</span>
-                </header>
-                <?php
-                echo Menu::widget(Yii::$app->controller->menu[4]['links']);
-                ?>
-            </nav>
-        </div>
         <main id="panel">
             <div class="row">
                 <?php
@@ -88,6 +68,27 @@ AppAsset::register($this);
                 </div>
             </footer>
         </main>
+        <div class="hidden-sm">
+            <?php
+            echo raoul2000\widget\slideout\Slideout::widget([
+                'pluginOptions' => [
+                    'panel' =>  new yii\web\JsExpression("document.getElementById('panel')"),
+                    'menu' => new yii\web\JsExpression("document.getElementById('menu')"),
+                    'padding' => 256,
+                    'tolerance' => 70
+                ]
+            ]);
+
+            ?>
+            <nav id="menu">
+                <header>
+                    <span class="h2">Главное меню</span>
+                </header>
+                <?php
+                echo Menu::widget(Yii::$app->controller->menu[4]['links']);
+                ?>
+            </nav>
+        </div>
     </div>
 
 
