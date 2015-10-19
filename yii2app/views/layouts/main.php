@@ -45,8 +45,18 @@ AppAsset::register($this);
         </div>
     </footer>
 <?php $this->endBody() ?>
+<a href="/site/pending/" data-target="#pending-form" class="showModalButton" data-toggle="modal" title="Заявка онлайн" >Заявка онлайн</a>
 
-
+<?php
+yii\bootstrap\Modal::begin([
+    'headerOptions' => ['id' => 'modalHeader'],
+    'id' => 'pending-form',
+    'size' => 'modal-md',
+    'clientOptions' => ['backdrop' => 'static', 'keyboard' => FALSE]
+]);
+echo "<div id='modalContent'>Подождите...</div>";
+yii\bootstrap\Modal::end();
+?>
 
 </body>
 </html>

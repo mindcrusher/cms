@@ -8,6 +8,7 @@
 
 namespace app\components;
 
+use Yii;
 use app\models\Menu;
 
 class Controller extends \yii\web\Controller
@@ -16,6 +17,7 @@ class Controller extends \yii\web\Controller
 
     public function init()
     {
+
         if(\Yii::$app->params['isUnderConstruction']) {
             $this->layout = '/under_construction';
         }
@@ -32,6 +34,10 @@ class Controller extends \yii\web\Controller
                 'name' => $group->display_name ? $group->name : '',
                 'links' => ['items' => $items],
             ];
+        }
+
+        if(Yii::$app->request->isAjax) {
+            $this->layout = false;
         }
     }
 }
