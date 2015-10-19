@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Links;
 use app\components\Controller;
+use app\models\Pending;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\HttpException;
@@ -71,6 +72,20 @@ class SiteController extends Controller
             return $this->refresh();
         } else {
             return $this->render('contact', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    public function actionPending()
+    {
+        $model = new Pending();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('pendingFormSubmitted', true);
+
+            return $this->refresh();
+        } else {
+            return $this->render('pending', [
                 'model' => $model,
             ]);
         }

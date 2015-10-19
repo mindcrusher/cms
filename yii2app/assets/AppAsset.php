@@ -20,7 +20,9 @@ class AppAsset extends AssetBundle
     public $css = [
 
     ];
-    public $js = [];
+    public $js = [
+        'js/app.js'
+    ];
     
     public $jsOptions = [
 

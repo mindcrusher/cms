@@ -2,5 +2,6 @@
 
 return [
     'adminEmail' => 'sid@feelthedrive.ru',
+    'ownerEmail' => 'wmyd@ya.ru',
     'isUnderConstruction' => false,
 ];

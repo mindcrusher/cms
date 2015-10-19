@@ -1,10 +1,6 @@
 <?php
 use yii\helpers\Html;
-use yii\helpers\Url;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use \app\modules\cart\widgets\Cart;
 use app\assets\AppAsset;
 AppAsset::register($this);
 ?>
@@ -49,6 +45,9 @@ AppAsset::register($this);
         </div>
     </footer>
 <?php $this->endBody() ?>
+
+
+
 </body>
 </html>
 <?php $this->endPage() ?>
