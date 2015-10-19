@@ -55,7 +55,7 @@ class Links extends \yii\db\ActiveRecord
 
     public function getUrl()
     {
-        return $this->is_url ? $this->url : ['/site/info', 'alias' => $this->alias];
+        return $this->is_url ? $this->url : Url::to(['/site/info', 'alias' => $this->alias]);
     }
 
     /**
