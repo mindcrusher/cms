@@ -45,7 +45,7 @@ class Pending extends \yii\db\ActiveRecord
             [['phone'], 'string', 'max' => 11],
             [['email'], 'string', 'max' => 45],
             [['address', 'protection_object', 'services_list', 'requirements', 'protection_systems', 'payment_conditions'], 'string', 'max' => 255],
-        //    ['verifyCode', 'captcha'],
+            ['verifyCode', 'captcha'],
         ];
     }
 
