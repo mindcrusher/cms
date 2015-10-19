@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             ['attribute' => 'alias', 'value' => function($model){
-                $url = \yii\helpers\Url::to(['/site/info', 'alias' => $model->alias]);
+                $url = $model->getUrl();
                 return Html::a($url, $url, ['target' => 'new']);
             }, 'format' => 'raw'],
             ['attribute' => 'page_id', 'value' => function($model){
