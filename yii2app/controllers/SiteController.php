@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Links;
 use app\components\Controller;
+use app\models\Pages;
 use app\models\Pending;
 use Yii;
 use yii\filters\AccessControl;
@@ -30,7 +31,9 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('index', [
+            'model' => Pages::findOne(1)
+        ]);
     }
 
     public function actionInfo($alias)

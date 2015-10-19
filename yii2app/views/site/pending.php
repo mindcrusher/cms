@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php else: ?>
 
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-sm-12">
             <?php $form = ActiveForm::begin(['id' => 'pending-form']); ?>
                 <?= $form->field($model, 'contact_name')->textInput([
                         'placeholder' => 'Юридическое лицо (Название) / Физическое лицо (ФИО)'
@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'protection_systems') ?>
                 <?= $form->field($model, 'payment_conditions') ?>
                 <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+                    'template' => '<div class="row"><div class="col-sm-3">{image}</div><div class="col-sm-6">{input}</div></div>',
                 ]) ?>
                 <div class="form-group">
                     <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary', 'name' => 'pending-button']) ?>

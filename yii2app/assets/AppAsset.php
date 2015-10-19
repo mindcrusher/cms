@@ -18,7 +18,7 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-
+        'css/taggerd.css'
     ];
     public $js = [
         'js/app.js'

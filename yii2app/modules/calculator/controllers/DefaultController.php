@@ -24,7 +24,6 @@ class DefaultController extends Controller
         $data = Yii::$app->request->post();
         
         if($data) {
-            sleep(10);
             $formatter = new Formatter();
             $formatter->thousandSeparator = ' ';
 
