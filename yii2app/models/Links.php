@@ -82,14 +82,14 @@ class Links extends \yii\db\ActiveRecord
             $r = new RedirectRules();
             $r->from = Url::to($this->getUrl());
 
-            if($this->id == 1) {
+            if($this->is_main) {
                 $this->is_url = true;
                 $this->alias = null;
                 $this->url = '/';
             } else {
                 $this->alias = $alias;
             }
-            $r->status_code = 301;
+            $r->status_code = RedirectRules::REDIRECT_STATUS_PERMANENT;
             $r->to = Url::to($this->getUrl());
             $r->save();
         } else {

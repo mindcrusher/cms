@@ -14,6 +14,7 @@ use Yii;
  */
 class RedirectRules extends \yii\db\ActiveRecord
 {
+    const REDIRECT_STATUS_PERMANENT = 301;
     /**
      * @inheritdoc
      */
@@ -28,7 +29,7 @@ class RedirectRules extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['status_code'], 'string'],
+            [['status_code'], 'integer'],
             [['from', 'to'], 'string', 'max' => 255],
             [['from'], 'unique'],
             [['from','to'], 'required'],
