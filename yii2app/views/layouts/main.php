@@ -20,51 +20,74 @@ AppAsset::register($this);
 
 <?php $this->beginBody() ?>
     <div class="container">
-        <header>
+        <div class="hidden-sm">
             <?php
-            NavBar::begin(['brandLabel' => 'Taggerd', 'id' => 'navbar-main']);
-            echo Nav::widget([
-                'items' => [
-                    ['label' => 'Домой', 'url' => ['/site/index']],
-                    ['label' => 'Онлайн заявка', 'url' => ['/site/pending'], 'linkOptions' => [
-                        'class' =>  'showModalButton hidden-xs',
-                        'data-target' => '#pending-form',
-                        'data-toggle' => 'modal',
-                        'title' => 'Заявка онлайн',
-                    ]],
-                    ['label' => 'Онлайн заявка', 'url' => ['/site/pending'], 'linkOptions' => [
-                        'class' =>  'visible-xs'
-                    ]],
-                    ['label' => 'Калькулятор', 'url' => ['/calc/default/index']],
-                ],
-                'options' => [
-                    'class' => 'navbar-nav navbar-right'
-                ],
+            echo raoul2000\widget\slideout\Slideout::widget([
+                'pluginOptions' => [
+                    'panel' =>  new yii\web\JsExpression("document.getElementById('panel')"),
+                    'menu' => new yii\web\JsExpression("document.getElementById('menu')"),
+                    'padding' => 256,
+                    'tolerance' => 70
+                ]
             ]);
-            NavBar::end();
+
             ?>
-        </header>
-        <div class="row">
-            <div class="col-sm-3">
+            <nav id="menu">
+                <header>
+                    <span class="h2">Главное меню</span>
+                </header>
                 <?php
                 echo Menu::widget(Yii::$app->controller->menu[4]['links']);
                 ?>
-            </div>
-            <div class="col-sm-9"><?=$content?></div>
+            </nav>
         </div>
-        <footer>
-            <div>
-                <div class="row">
-                    <div class="col-sm-4">contacts</div>
-                    <div class="col-sm-4">
-                        <?php
-                        echo Menu::widget(Yii::$app->controller->menu[5]['links']);
-                        ?>
-                    </div>
-                    <div class="col-sm-4">somtehting else</div>
-                </div>
+        <main id="panel">
+            <div class="row">
+                <?php
+                NavBar::begin(['brandLabel' => 'Taggerd', 'id' => 'navbar-main']);
+                echo Nav::widget([
+                    'items' => [
+                        ['label' => 'Домой', 'url' => ['/site/index']],
+                        ['label' => 'Онлайн заявка', 'url' => ['/site/pending'], 'linkOptions' => [
+                            'class' =>  'showModalButton hidden-xs',
+                            'data-target' => '#pending-form',
+                            'data-toggle' => 'modal',
+                            'title' => 'Заявка онлайн',
+                        ]],
+                        ['label' => 'Онлайн заявка', 'url' => ['/site/pending'], 'linkOptions' => [
+                            'class' =>  'visible-xs'
+                        ]],
+                        ['label' => 'Калькулятор', 'url' => ['/calc/default/index']],
+                    ],
+                    'options' => [
+                        'class' => 'navbar-nav navbar-right'
+                    ],
+                ]);
+                NavBar::end();
+                ?>
             </div>
-        </footer>
+            <div class="row">
+                <div class="col-sm-3 hidden-xs">
+                    <?php
+                    echo Menu::widget(Yii::$app->controller->menu[4]['links']);
+                    ?>
+                </div>
+                <div class="col-xs-12 col-sm-9"><?=$content?></div>
+            </div>
+            <footer>
+                <div>
+                    <div class="row">
+                        <div class="col-sm-4">contacts</div>
+                        <div class="col-sm-4">
+                            <?php
+                            echo Menu::widget(Yii::$app->controller->menu[5]['links']);
+                            ?>
+                        </div>
+                        <div class="col-sm-4">somtehting else</div>
+                    </div>
+                </div>
+            </footer>
+        </main>
     </div>
 
 
@@ -80,6 +103,7 @@ yii\bootstrap\Modal::begin([
 echo "<div id='modalContent'>Подождите...</div>";
 yii\bootstrap\Modal::end();
 ?>
+
 
 </body>
 </html>
