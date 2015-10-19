@@ -55,7 +55,6 @@ class Links extends \yii\db\ActiveRecord
 
     public function getUrl()
     {
-
         return $this->is_url ? $this->url : ['/site/info', 'alias' => $this->alias];
     }
 
@@ -82,7 +81,15 @@ class Links extends \yii\db\ActiveRecord
         if(!empty($this->alias)) {
             $r = new RedirectRules();
             $r->from = Url::to($this->getUrl());
-            $this->alias = $alias;
+
+            if($this->id == 1) {
+                $this->is_url = true;
+                $this->alias = null;
+                $this->url = '/';
+            } else {
+                $this->alias = $alias;
+            }
+            $r->status_code = 301;
             $r->to = Url::to($this->getUrl());
             $r->save();
         } else {

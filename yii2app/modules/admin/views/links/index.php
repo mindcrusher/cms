@@ -26,7 +26,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 $url = \yii\helpers\Url::to(['/site/info', 'alias' => $model->alias]);
                 return Html::a($url, $url, ['target' => 'new']);
             }, 'format' => 'raw'],
-            ['attribute' => 'page_id', 'value' => function($model){ return $model->page->title;}],
+            ['attribute' => 'page_id', 'value' => function($model){
+                $title = !empty($model->page->title) ? $model->page->title : null;
+
+                return $title;
+            }],
             // 'is_active',
             // 'sort',
 

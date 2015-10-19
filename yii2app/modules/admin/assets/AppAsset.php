@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace app\modules\catalog\assets;
+namespace app\modules\admin\assets;
 
 use yii\web\AssetBundle;
 
@@ -15,18 +15,21 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
-    public $sourcePath = '@app/modules/catalog/assets/files';
+    public $sourcePath = '@app/modules/admin/assets/files';
 
     public $css = [
+        'css/admin.css'
     ];
 
     public $js = [
     ];
-    
+
     public $jsOptions = [
     ];
 
     public $depends = [
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
     ];
 
     public $publishOptions = [

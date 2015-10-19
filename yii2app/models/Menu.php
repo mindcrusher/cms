@@ -42,7 +42,7 @@ class Menu extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Название группы',
+            'name' => 'Название',
             'is_active' => 'Активна',
             'display_name' => 'Отображать название',
         ];

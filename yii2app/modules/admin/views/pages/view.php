@@ -30,7 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'title',
+            'seo_title',
             'description',
+            'seo_description',
+            'seo_keywords',
             [
                 'attribute' => 'text',
                 'format'=>'raw',

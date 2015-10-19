@@ -38,7 +38,7 @@ class Pages extends \yii\db\ActiveRecord
             [['text'], 'string'],
             [['is_active'], 'integer'],
             [['created_time', 'updated_time'], 'safe'],
-            [['title', 'description'], 'string', 'max' => 255]
+            [['title','seo_title', 'description' ,'seo_description'], 'string', 'max' => 255]
         ];
     }
 
@@ -53,6 +53,9 @@ class Pages extends \yii\db\ActiveRecord
             'description' => 'Описание',
             'text' => 'Текст',
             'is_active' => 'Активна',
+            'seo_title' => 'SEO заголовок',
+            'seo_description' => 'SEO описание',
+            'seo_keywords' => 'Ключевые слова',
             'created_time' => 'Время создания',
             'updated_time' => 'Последнее обновление',
         ];
@@ -66,19 +69,9 @@ class Pages extends \yii\db\ActiveRecord
         return $this->hasMany(Links::className(), ['page_id' => 'id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getSeo()
-    {
-        return $this->hasOne(Seo::className(), ['page_id' => 'id']);
-    }
-
     public function getFree()
     {
         return self::find()
-            ->joinWith('seo')
-            ->where('seo.id is null')
             ->asArray()
             ->all();
     }

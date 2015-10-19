@@ -4,8 +4,7 @@ use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use \app\modules\cart\widgets\Cart;
-use app\assets\AppAsset;
+use app\modules\admin\assets\AppAsset;
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -36,7 +35,6 @@ AppAsset::register($this);
                     'items' => [
                         ['label' => 'Наполнение', 'items' => [
                             ['label' => 'Страницы', 'url' => ['/cms/pages/index']],
-                            ['label' => 'SEO', 'url' => ['/cms/seo/index']],
                             ['label' => 'Ссылки', 'url' => ['/cms/links/index']],
                             ['label' => 'Меню', 'url' => ['/cms/menu/index']],
                             ['label' => 'Перенаправление страниц', 'url' => ['/cms/redirect/index']],
@@ -62,6 +60,11 @@ AppAsset::register($this);
 
         <div class="container">
                 <?= Breadcrumbs::widget([
+                    'homeLink' => [
+                        'label' => 'Главная',
+                        'url' => Url::to('/cms/'),
+                        'itemprop' => 'url',
+                    ],
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ]) ?>
                 <?= $content ?>
