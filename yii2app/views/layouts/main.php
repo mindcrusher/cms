@@ -68,7 +68,7 @@ AppAsset::register($this);
                 </div>
             </footer>
         </main>
-        <div class="hidden-sm">
+        <div class="hidden-md">
             <?php
             echo raoul2000\widget\slideout\Slideout::widget([
                 'pluginOptions' => [
