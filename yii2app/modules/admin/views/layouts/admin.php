@@ -38,6 +38,7 @@ AppAsset::register($this);
                             ['label' => 'Ссылки', 'url' => ['/cms/links/index']],
                             ['label' => 'Меню', 'url' => ['/cms/menu/index']],
                             ['label' => 'Перенаправление страниц', 'url' => ['/cms/redirect/index']],
+                            ['label' => 'Контакты', 'url' => ['/cms/contact/index']],
                         ]],
                         ['label' => 'Калькулятор', 'items' => [
                                 ['label' => 'Базовый тариф', 'url' => ['/cms/mode/index']],

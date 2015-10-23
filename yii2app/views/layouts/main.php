@@ -27,12 +27,20 @@ AppAsset::register($this);
                 NavBar::begin(['brandLabel' => 'Taggerd', 'id' => 'navbar-main']);
                 echo Nav::widget([
                     'items' => [
-                        ['label' => 'Домой', 'url' => ['/site/index']],
+                        ['label' => 'Обратная связь', 'url' => ['/site/contact'], 'linkOptions' => [
+                            'class' =>  'showModalButton hidden-xs',
+                            'data-target' => '#pending-form',
+                            'data-toggle' => 'modal',
+                            'title' => 'Обратная связь',
+                        ]],
                         ['label' => 'Онлайн заявка', 'url' => ['/site/pending'], 'linkOptions' => [
                             'class' =>  'showModalButton hidden-xs',
                             'data-target' => '#pending-form',
                             'data-toggle' => 'modal',
                             'title' => 'Заявка онлайн',
+                        ]],
+                        ['label' => 'Обратная связь', 'url' => ['/site/pending'], 'linkOptions' => [
+                            'class' =>  'visible-xs'
                         ]],
                         ['label' => 'Онлайн заявка', 'url' => ['/site/pending'], 'linkOptions' => [
                             'class' =>  'visible-xs'
@@ -49,7 +57,9 @@ AppAsset::register($this);
             <div class="row">
                 <div class="col-sm-3 hidden-xs">
                     <?php
-                    echo Menu::widget(Yii::$app->controller->menu[4]['links']);
+                    if(!empty(Yii::$app->controller->menu)) {
+                        echo Menu::widget(Yii::$app->controller->menu[4]['links']);
+                    }
                     ?>
                 </div>
                 <div class="col-xs-12 col-sm-9"><?=$content?></div>
@@ -57,10 +67,16 @@ AppAsset::register($this);
             <footer>
                 <div>
                     <div class="row">
-                        <div class="col-sm-4">contacts</div>
+                        <div class="col-sm-4">
+                            <?php foreach(app\models\Contacts::findAllActive() as $contact) { ?>
+                                <div><span class="<?=$contact->icon()?>" aria-hidden="true"></span> &nbsp;<?=$contact->formatted();?></div>
+                            <? } ?>
+                        </div>
                         <div class="col-sm-4">
                             <?php
-                            echo Menu::widget(Yii::$app->controller->menu[5]['links']);
+                            if(!empty(Yii::$app->controller->menu)) {
+                                echo Menu::widget(Yii::$app->controller->menu[5]['links']);
+                            }
                             ?>
                         </div>
                         <div class="col-sm-4">somtehting else</div>
@@ -85,7 +101,9 @@ AppAsset::register($this);
                     <span class="h2">Главное меню</span>
                 </header>
                 <?php
-                echo Menu::widget(Yii::$app->controller->menu[4]['links']);
+                if(!empty(Yii::$app->controller->menu)) {
+                    echo Menu::widget(Yii::$app->controller->menu[4]['links']);
+                }
                 ?>
             </nav>
         </div>

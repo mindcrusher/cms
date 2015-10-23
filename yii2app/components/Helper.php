@@ -14,6 +14,9 @@ use yii\base\Object;
 
 class Helper
 {
+    
+    private static $country_code = '+7';
+    
     /**
      * Транслитерация русского текста в латиницу
      * @param type $st
@@ -63,5 +66,14 @@ class Helper
             "є" => "e", "Є" => "e"
         );
         return strtr($st, $replace);
+    }
+    
+    public static function formatPhone( $str )
+    {
+        $str = trim($str);
+        if(preg_match('#^(\d{3})(\d{3})(\d{2})(\d{2})$#', $str, $match)) {
+            $str = '(' . $match[1] . ')' . $match[2] . '-' . $match[3] . '-' . $match[4];
+        }
+        return self::$country_code . $str;
     }
 }

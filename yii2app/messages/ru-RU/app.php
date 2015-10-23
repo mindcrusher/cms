@@ -1,5 +1,7 @@
 <?php
 return [
+    'Contacts' => 'Контакты',
+    'Create Contacts' => 'Добавить',
     'Calc Modes' => 'Основной фактор цены',
     'Calc Taxes' => 'Базовый тариф',
     'Calc Settings' => 'Настройки',
