@@ -31,7 +31,7 @@ class ImportController extends Controller
 
     public function actionPhotos()
     {
-        $root = \Yii::$app->params['storageDirectory'] . '/files/storage/images';
+        $root = \Yii::$app->params['webroot'] . '/files/storage/images';
         $command = "find $root *.*";
         $files = explode(PHP_EOL, shell_exec($command));
         foreach($files as $path) {
