@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\bootstrap\Html;
 
 /**
  * This is the model class for table "sliders".
@@ -20,7 +21,7 @@ class Banners extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'sliders';
+        return 'banners';
     }
 
     /**
@@ -32,7 +33,7 @@ class Banners extends \yii\db\ActiveRecord
             [['photo_id'], 'required'],
             [['photo_id', 'is_active'], 'integer'],
             [['html'], 'string'],
-            [['url'], 'string', 'max' => 255],
+            [['url','title'], 'string', 'max' => 255],
         ];
     }
 
@@ -47,6 +48,30 @@ class Banners extends \yii\db\ActiveRecord
             'url' => Yii::t('app', 'URL'),
             'html' => Yii::t('app', 'Текст'),
             'is_active' => Yii::t('app', 'Активность'),
+        ];
+    }
+
+    public static function findActive()
+    {
+        return self::find()
+                ->where('is_active = 1')
+                ->andWhere('NOW() between begin_time and end_time')
+                ->all();
+    }
+
+    public function getContent()
+    {
+        $content = null;
+        $caption = $this->title;
+        if(!empty($this->photo_id)) {
+            $content = Html::img($this->photo->getUrl());
+        } else {
+            $content = $this->html;
+        }
+
+        return [
+            'content' => $content,
+            'caption' => $caption,
         ];
     }
 }
