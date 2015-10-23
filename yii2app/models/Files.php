@@ -12,6 +12,7 @@ use Yii;
  */
 class Files extends \yii\db\ActiveRecord
 {
+    public $file;
     /**
      * @inheritdoc
      */
@@ -28,7 +29,7 @@ class Files extends \yii\db\ActiveRecord
         return [
             [['hash'], 'unique'],
             [['src'], 'unique'],
-            [['name'], 'required'],
+            [['file'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, gif, doc, xls'],
         ];
     }
 
@@ -40,12 +41,23 @@ class Files extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'src' => 'Расположение',
+            'name' => 'Название',
+            'file' => 'Файл',
         ];
     }
 
     public function getPath()
     {
-        return Yii::$app->params['storageDirectory'] . $this->src;
+        $root = Yii::getAlias('@webroot');
+        preg_match('#^(\S{3})(.+)$#',$this->hash, $s);
+        $directory = Yii::$app->params['storageDirectory'] . $s[1] . DIRECTORY_SEPARATOR;
+        $src =  $directory . $s[2] . '.' .  $this->ext;
+
+        if(!is_dir($root . $directory)) {
+            mkdir( $root . $directory, 0777, true );
+        }
+
+        return $src;
     }
 
     public function getUrl()
@@ -57,7 +69,7 @@ class Files extends \yii\db\ActiveRecord
     {
         if(is_file($path)) {
             $i = pathinfo($path);
-            $root = Yii::$app->params['storageDirectory'];
+            $root = Yii::$app->params['webroot'];
             $hash = md5_file($path);
 
             $this->origin = $path;
@@ -66,12 +78,7 @@ class Files extends \yii\db\ActiveRecord
             $this->hash = $hash;
             $this->size = filesize($path);
             if($allowMove) {
-                preg_match('#^(\S{4})(.+)$#',$hash, $s);
-                $directory = DIRECTORY_SEPARATOR . $s[1] . DIRECTORY_SEPARATOR;
-                $this->src   =  $directory . $s[2] . '.' .  $this->ext;
-                if(!is_dir($root . $directory)) {
-                    mkdir( $root . $directory );
-                }
+                $this->src = $this->getPath();
                 rename( $path , $root . $this->src );
             } else {
                 $this->src = $path;
@@ -80,6 +87,23 @@ class Files extends \yii\db\ActiveRecord
             $this->origin = substr($this->origin, strlen($root));
 
             return $this->save();
+        }
+    }
+
+    public function upload()
+    {
+        if ($this->validate()) {
+
+            $this->ext = $this->file->extension;
+            $this->hash = md5_file($this->file->tempName);
+            $this->size = $this->file->size;
+            $this->name = empty($this->name) ? $this->file->baseName : $this->name;
+            $this->src = $this->getPath();
+            $this->save();
+            $this->file->saveAs(Yii::getAlias('@webroot') . $this->getPath());
+            return true;
+        } else {
+            return false;
         }
     }
 }
