@@ -4,11 +4,10 @@ namespace app\modules\admin\controllers;
 
 use Yii;
 use app\models\Files;
-use app\components\UploadedFile;
+use yii\web\UploadedFile;
 use yii\data\ActiveDataProvider;
 use app\modules\admin\components\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * FilesController implements the CRUD actions for Files model.

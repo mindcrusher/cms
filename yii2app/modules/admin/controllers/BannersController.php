@@ -5,11 +5,10 @@ namespace app\modules\admin\controllers;
 use app\models\Files;
 use Yii;
 use app\models\Banners;
-use app\components\UploadedFile;
+use yii\web\UploadedFile;
 use yii\data\ActiveDataProvider;
 use app\modules\admin\components\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 
 /**
