@@ -34,6 +34,7 @@ AppAsset::register($this);
                     'options' => ['class' => 'navbar-nav navbar-right'],
                     'items' => [
                         ['label' => 'Наполнение', 'items' => [
+                            ['label' => Yii::t('app', 'Banners'), 'url' => ['banners/index']],
                             ['label' => Yii::t('app', 'Pages'), 'url' => ['pages/index']],
                             ['label' => Yii::t('app', 'Links'), 'url' => ['links/index']],
                             ['label' => Yii::t('app', 'Menu'), 'url' => ['menu/index']],

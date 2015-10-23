@@ -2,14 +2,13 @@
 
 namespace app\modules\admin\controllers;
 
-use Composer\Downloader\FilesystemException;
 use Yii;
 use app\models\Files;
+use app\components\UploadedFile;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
  * FilesController implements the CRUD actions for Files model.
@@ -95,7 +94,7 @@ class FilesController extends Controller
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
-            return $this->render('create', [
+            return $this->render('update', [
                 'model' => $model,
             ]);
         }

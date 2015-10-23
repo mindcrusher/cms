@@ -43,11 +43,14 @@ class Banners extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'photo_id' => Yii::t('app', 'Изображение'),
-            'url' => Yii::t('app', 'URL'),
-            'html' => Yii::t('app', 'Текст'),
-            'is_active' => Yii::t('app', 'Активность'),
+            'id' => 'ID',
+            'photo_id' => 'Изображение',
+            'url' => 'URL',
+            'html' => 'Текст',
+            'title' => 'Заголовок',
+            'begin_time' => 'Начало показа',
+            'end_time' => 'Конец показа',
+            'is_active' => 'Активность',
         ];
     }
 
@@ -64,7 +67,7 @@ class Banners extends \yii\db\ActiveRecord
         $content = null;
         $caption = $this->title;
         if(!empty($this->photo_id)) {
-            $content = Html::img($this->photo->getUrl());
+            $content = html::a(Html::img($this->file->getUrl()), $this->url);
         } else {
             $content = $this->html;
         }
@@ -73,5 +76,10 @@ class Banners extends \yii\db\ActiveRecord
             'content' => $content,
             'caption' => $caption,
         ];
+    }
+
+    public function getFile()
+    {
+        return $this->hasOne(Files::className(), ['id' => 'photo_id']);
     }
 }

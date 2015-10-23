@@ -5,7 +5,7 @@ use app\models\Category;
 
 echo TreeView::widget([
     'query' => Category::find()->addOrderBy('root, lft'),
-    'headingOptions' => ['label' => 'Categories'],
+    'headingOptions' => ['label' => Yii::t('app', 'Categories')],
     'rootOptions' => ['label'=>'<span class="text-primary">Root</span>'],
     'fontAwesome' => false,
     'isAdmin' => true,

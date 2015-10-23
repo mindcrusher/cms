@@ -1,5 +1,8 @@
 <?php
 return [
+    'Update {modelClass}' => 'Изменить {modelClass}:',
+    'Update {modelClass}: ' => 'Измененить {modelClass}:',
+    'Create {modelClass}' => 'Создать {modelClass}',
     'Contacts' => 'Контакты',
     'Create Contacts' => 'Добавить',
     'Calc Modes' => 'Основной фактор цены',
@@ -12,9 +15,6 @@ return [
     'Update Calc Modifications Groups' => 'Изменить группу опций',
     'Create Calc Modifications' => 'Создать опцию',
     'Update Calc Modifications' => 'Изменить опцию',
-    'Update {modelClass}' => 'Изменение:',
-    'Update {modelClass}: ' => 'Изменение:',
-    'Create {modelClass}' => 'Создание',
     'Create Calc Tax: ' => 'Создать: ',
     'Create' => 'Создать',
     'Update' => 'Изменить',
@@ -28,7 +28,12 @@ return [
     'Create Pages' => 'Создать',
     'Add' => 'Добавить',
     'Files' => 'Файлы',
+    'Banners' => 'Баннеры',
+    'Banner' => 'баннер',
+    'Create Banners' => 'Добавить баннер',
+    'Update Banners: ' => 'Изменить баннер',
     'Redirect Rules' => 'Перенаправление страниц',
     'Create Redirect Rules' => 'Создать правило',
     'Are you sure you want to delete this item?' => 'Вы действительно хотите удалить запись?',
+
 ];

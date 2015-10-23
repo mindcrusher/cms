@@ -94,22 +94,24 @@ class Files extends \yii\db\ActiveRecord
 
     public function upload()
     {
-        if ($this->validate()) {
-            if(!empty($this->file)) {
+        $hash = md5_file($this->file->tempName);
+        $exists = self::findOne(['hash' => $hash]);
+        if (empty($exists)) {
+            if (!empty($this->file)) {
                 $this->ext = $this->file->extension;
-                $this->hash = md5_file($this->file->tempName);
+                $this->hash = $hash;
                 $this->size = $this->file->size;
                 $this->name = empty($this->name) ? $this->file->baseName : $this->name;
                 $this->src = $this->getPath();
             }
 
             $this->save();
-            if(!empty($this->file)) {
+            if (!empty($this->file)) {
                 $this->file->saveAs(Yii::getAlias('@webroot') . $this->getPath());
             }
-            return true;
+            return $this->id;
         } else {
-            return false;
+            return $exists->id;
         }
     }
 
