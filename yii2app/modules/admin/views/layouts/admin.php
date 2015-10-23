@@ -25,7 +25,7 @@ AppAsset::register($this);
             if(!Yii::$app->user->isGuest) {
                 NavBar::begin([
                     'brandLabel' => 'Администрирование сайта',
-                    'brandUrl' => Url::to(''),
+                    'brandUrl' => Url::to('/cms/'),
                     'options' => [
                         'class' => 'navbar-inverse navbar-fixed-top',
                     ],

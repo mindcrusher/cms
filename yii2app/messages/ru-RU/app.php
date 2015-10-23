@@ -1,5 +1,6 @@
 <?php
 return [
+    'Categories' => 'Каталог',
     'Update {modelClass}' => 'Изменить {modelClass}:',
     'Update {modelClass}: ' => 'Измененить {modelClass}:',
     'Create {modelClass}' => 'Создать {modelClass}',
