@@ -112,4 +112,9 @@ class Files extends \yii\db\ActiveRecord
             return false;
         }
     }
+
+    public function afterDelete()
+    {
+        unlink(Yii::getAlias('@webroot') . $this->getPath());
+    }
 }
