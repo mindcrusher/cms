@@ -7,7 +7,7 @@ use Yii;
 use app\models\Banners;
 use app\components\UploadedFile;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
+use app\modules\admin\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -17,18 +17,6 @@ use yii\filters\VerbFilter;
  */
 class BannersController extends Controller
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all Banners models.
      * @return mixed

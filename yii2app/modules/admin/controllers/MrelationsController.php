@@ -14,17 +14,6 @@ use yii\filters\VerbFilter;
  */
 class MrelationsController extends Controller
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all MenuRelations models.

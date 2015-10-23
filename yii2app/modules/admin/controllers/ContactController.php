@@ -5,7 +5,7 @@ namespace app\modules\admin\controllers;
 use Yii;
 use app\models\Contacts;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
+use app\modules\admin\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -14,17 +14,6 @@ use yii\filters\VerbFilter;
  */
 class ContactController extends Controller
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * Lists all Contacts models.

@@ -14,18 +14,6 @@ use yii\filters\VerbFilter;
  */
 class LinksController extends Controller
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all Links models.
      * @return mixed

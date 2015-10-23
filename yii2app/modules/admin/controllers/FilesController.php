@@ -6,7 +6,7 @@ use Yii;
 use app\models\Files;
 use app\components\UploadedFile;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
+use app\modules\admin\components\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -15,17 +15,6 @@ use yii\filters\VerbFilter;
  */
 class FilesController extends Controller
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
 
     /**

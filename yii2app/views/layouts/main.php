@@ -55,14 +55,17 @@ AppAsset::register($this);
                 ?>
             </div>
             <div class="row">
+                <?php
+                $hasMenu = !empty(Yii::$app->controller->menu);
+                if($hasMenu) {
+                ?>
                 <div class="col-sm-3 hidden-xs">
                     <?php
-                    if(!empty(Yii::$app->controller->menu)) {
                         echo Menu::widget(Yii::$app->controller->menu[4]['links']);
-                    }
                     ?>
                 </div>
-                <div class="col-xs-12 col-sm-9"><?=$content?></div>
+                <?php } ?>
+                <div class="col-xs-12 col-sm-<?=$hasMenu ? 9 : 12?>"><?=$content?></div>
             </div>
             <footer>
                 <div>
