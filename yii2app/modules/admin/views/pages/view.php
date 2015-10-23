@@ -38,7 +38,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'text',
                 'format'=>'raw',
             ],
-            'is_active',
+            [
+                'attribute' => 'is_active',
+                'value' => \app\components\Helper::boolLabel($model)
+            ],
             'created_time',
             'updated_time',
         ],

@@ -30,7 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'is_active',
+            [
+                'attribute' => 'is_active',
+                'value' => \app\components\Helper::boolLabel($model)
+            ],
             'display_name',
         ],
     ]) ?>

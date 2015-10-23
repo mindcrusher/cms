@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'is_active',
                 'value' => function($model) {
-                    return $model->is_active ? 'Да' : 'Нет';
+                    return \app\components\Helper::boolLabel($model);
                 }
             ],
             'created_time',

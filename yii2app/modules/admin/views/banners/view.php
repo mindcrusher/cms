@@ -30,12 +30,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'title',
-            'photo_id',
+            [
+                'attribute' => 'photo_id',
+                'value' => empty($model->file) ? '' : Html::img($model->file->src, ['width' => '250']),
+                'format' => 'raw'
+            ],
             'url:url',
-            'html:ntext',
+            [
+                'attribute' => 'html',
+                'format' => 'raw',
+            ],
             'begin_time',
             'end_time',
-            'is_active',
+            [
+                'attribute' => 'is_active',
+                'value' => \app\components\Helper::boolLabel($model)
+            ],
         ],
     ]) ?>
 

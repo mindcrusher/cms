@@ -32,8 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'alias',
             'page_id',
-            'is_active',
-            'sort',
+            [
+                'attribute' => 'is_active',
+                'value' => \app\components\Helper::boolLabel($model)
+            ],
         ],
     ]) ?>
 

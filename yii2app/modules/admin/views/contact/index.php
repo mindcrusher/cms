@@ -24,7 +24,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'type',
             'value',
             'description',
-            'is_active',
+            [
+                'attribute' => 'is_active',
+                'value' => function($model) {
+                    return \app\components\Helper::boolLabel($model);
+                }
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

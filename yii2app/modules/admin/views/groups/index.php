@@ -23,7 +23,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'title',
-            array( 'attribute' => 'is_active' , 'value' => function($data){ return $data->is_active ? 'Да' : 'Нет';}),
+            [
+                'attribute' => 'is_active',
+                'value' => function($model) {
+                    return \app\components\Helper::boolLabel($model);
+                }
+            ],
             
             ['class' => 'yii\grid\ActionColumn'],
         ],

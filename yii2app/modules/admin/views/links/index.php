@@ -31,7 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 return $title;
             }],
-            // 'is_active',
+            [
+                'attribute' => 'is_active',
+                'value' => function($model) {
+                    return \app\components\Helper::boolLabel($model);
+                }
+            ],
             // 'sort',
 
             ['class' => 'yii\grid\ActionColumn'],

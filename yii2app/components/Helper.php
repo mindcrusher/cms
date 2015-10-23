@@ -76,4 +76,9 @@ class Helper
         }
         return self::$country_code . $str;
     }
+
+    public static function boolLabel( $model , $attribute = 'is_active')
+    {
+        return $model->$attribute ? 'Да' : 'Нет';
+    }
 }

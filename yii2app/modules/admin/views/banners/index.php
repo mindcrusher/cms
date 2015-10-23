@@ -33,7 +33,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'begin_time',
             'end_time',
-            'is_active',
+            [
+                'attribute' => 'is_active',
+                'value' => function($model) {
+                    return \app\components\Helper::boolLabel($model);
+                }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
