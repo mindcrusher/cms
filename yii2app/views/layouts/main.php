@@ -22,7 +22,7 @@ AppAsset::register($this);
     <div class="container">
         <div class="row">
             <main id="panel">
-                <div class="">
+                <div class="row">
                     <?php
                     NavBar::begin(['brandLabel' => 'Taggerd', 'id' => 'navbar-main']);
                     echo Nav::widget([
@@ -53,7 +53,7 @@ AppAsset::register($this);
                     ]);
                     NavBar::end();
                     ?>
-
+                </div>
                     <?php
                     $hasMenu = !empty(Yii::$app->controller->menu);
                     if($hasMenu) {
@@ -85,7 +85,6 @@ AppAsset::register($this);
                             </div>
                         </div>
                     </footer>
-                </div>
             </main>
 
 
@@ -96,7 +95,7 @@ AppAsset::register($this);
                         'panel' =>  new yii\web\JsExpression("document.getElementById('panel')"),
                         'menu' => new yii\web\JsExpression("document.getElementById('mobile_menu')"),
                         'padding' => 256,
-                        'tolerance' => 70
+                        'tolerance' => 100
                     ]
                 ]);
 
