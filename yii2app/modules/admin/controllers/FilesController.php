@@ -78,7 +78,13 @@ class FilesController extends Controller
         if (Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->post());
             $model->file = UploadedFile::getInstance($model, 'file');
-            if ($model->upload()) {
+            if(empty($model->file->file)) {
+                $r = $model->save();
+            } else {
+                $model->photo_id = $model->upload();
+                $r = $model->upload();
+            }
+            if ($r) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
