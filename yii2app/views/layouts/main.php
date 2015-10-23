@@ -54,6 +54,7 @@ AppAsset::register($this);
                     NavBar::end();
                     ?>
                 </div>
+                <div class="row">
                     <?php
                     $hasMenu = !empty(Yii::$app->controller->menu);
                     if($hasMenu) {
@@ -65,26 +66,28 @@ AppAsset::register($this);
                     </div>
                     <?php } ?>
                     <div class="col-xs-12 col-sm-<?=$hasMenu ? 9 : 12?>"><?=$content?></div>
+                </div>
 
-                    <footer>
-                        <div>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <?php foreach(app\models\Contacts::findAllActive() as $contact) { ?>
-                                        <div><span class="<?=$contact->icon()?>" aria-hidden="true"></span> &nbsp;<?=$contact->formatted();?></div>
-                                    <? } ?>
-                                </div>
-                                <div class="col-sm-4">
-                                    <?php
-                                    if(!empty(Yii::$app->controller->menu)) {
-                                        echo Menu::widget(Yii::$app->controller->menu[5]['links']);
-                                    }
-                                    ?>
-                                </div>
-                                <div class="col-sm-4">somtehting else</div>
+                <footer>
+                    <div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <?php foreach(app\models\Contacts::findAllActive() as $contact) { ?>
+                                    <div><span class="<?=$contact->icon()?>" aria-hidden="true"></span> &nbsp;<?=$contact->formatted();?></div>
+                                <? } ?>
                             </div>
+                            <div class="col-sm-4">
+                                <?php
+                                if(!empty(Yii::$app->controller->menu)) {
+                                    echo Menu::widget(Yii::$app->controller->menu[5]['links']);
+                                }
+                                ?>
+                            </div>
+                            <div class="col-sm-4">somtehting else</div>
                         </div>
-                    </footer>
+                    </div>
+                </footer>
+
             </main>
 
 
