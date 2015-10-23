@@ -28,8 +28,9 @@ class Files extends \yii\db\ActiveRecord
     {
         return [
             [['hash'], 'unique'],
+            [['name'], 'safe'],
             [['src'], 'unique'],
-            [['file'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, gif, doc, xls'],
+            [['file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, gif, doc, xls'],
         ];
     }
 
@@ -43,6 +44,7 @@ class Files extends \yii\db\ActiveRecord
             'src' => 'Расположение',
             'name' => 'Название',
             'file' => 'Файл',
+            'size' => 'Размер',
         ];
     }
 
@@ -93,14 +95,18 @@ class Files extends \yii\db\ActiveRecord
     public function upload()
     {
         if ($this->validate()) {
+            if(!empty($this->file)) {
+                $this->ext = $this->file->extension;
+                $this->hash = md5_file($this->file->tempName);
+                $this->size = $this->file->size;
+                $this->name = empty($this->name) ? $this->file->baseName : $this->name;
+                $this->src = $this->getPath();
+            }
 
-            $this->ext = $this->file->extension;
-            $this->hash = md5_file($this->file->tempName);
-            $this->size = $this->file->size;
-            $this->name = empty($this->name) ? $this->file->baseName : $this->name;
-            $this->src = $this->getPath();
             $this->save();
-            $this->file->saveAs(Yii::getAlias('@webroot') . $this->getPath());
+            if(!empty($this->file)) {
+                $this->file->saveAs(Yii::getAlias('@webroot') . $this->getPath());
+            }
             return true;
         } else {
             return false;

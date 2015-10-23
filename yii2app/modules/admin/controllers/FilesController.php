@@ -89,17 +89,13 @@ class FilesController extends Controller
         $model = $this->findModel($id);
 
         if (Yii::$app->request->isPost) {
+            $model->load(Yii::$app->request->post());
             $model->file = UploadedFile::getInstance($model, 'file');
-
             if ($model->upload()) {
-                // file is uploaded successfully
+                return $this->redirect(['view', 'id' => $model->id]);
             }
-        }
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('update', [
+            return $this->render('create', [
                 'model' => $model,
             ]);
         }

@@ -31,7 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'size',
-            'hash',
             [
                 'attribute' => 'src',
                 'value' => Html::img($model->src,['width' => '100%']),
