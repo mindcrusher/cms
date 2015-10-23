@@ -25,7 +25,7 @@ AppAsset::register($this);
             if(!Yii::$app->user->isGuest) {
                 NavBar::begin([
                     'brandLabel' => 'Администрирование сайта',
-                    'brandUrl' => Url::to('/cms/'),
+                    'brandUrl' => Url::to(''),
                     'options' => [
                         'class' => 'navbar-inverse navbar-fixed-top',
                     ],
@@ -34,18 +34,19 @@ AppAsset::register($this);
                     'options' => ['class' => 'navbar-nav navbar-right'],
                     'items' => [
                         ['label' => 'Наполнение', 'items' => [
-                            ['label' => 'Страницы', 'url' => ['/cms/pages/index']],
-                            ['label' => 'Ссылки', 'url' => ['/cms/links/index']],
-                            ['label' => 'Меню', 'url' => ['/cms/menu/index']],
-                            ['label' => 'Перенаправление страниц', 'url' => ['/cms/redirect/index']],
-                            ['label' => 'Контакты', 'url' => ['/cms/contact/index']],
+                            ['label' => Yii::t('app', 'Pages'), 'url' => ['pages/index']],
+                            ['label' => Yii::t('app', 'Links'), 'url' => ['links/index']],
+                            ['label' => Yii::t('app', 'Menu'), 'url' => ['menu/index']],
+                            ['label' => Yii::t('app', 'Files'), 'url' => ['files/index']],
+                            ['label' => Yii::t('app', 'Redirect Rules'), 'url' => ['redirect/index']],
+                            ['label' => Yii::t('app', 'Contacts'), 'url' => ['contact/index']],
                         ]],
                         ['label' => 'Калькулятор', 'items' => [
-                                ['label' => 'Базовый тариф', 'url' => ['/cms/mode/index']],
-                                ['label' => 'Опции', 'url' => ['/cms/modifications/index']],
-                                ['label' => 'Группы опций', 'url' => ['/cms/groups/index']],
-                                ['label' => 'Тариф', 'url' => ['/cms/tax/index']],
-                                ['label' => 'Настройки', 'url' => ['/cms/settings/index']],
+                                ['label' => 'Базовый тариф', 'url' => ['mode/index']],
+                                ['label' => 'Опции', 'url' => ['modifications/index']],
+                                ['label' => 'Группы опций', 'url' => ['groups/index']],
+                                ['label' => 'Тариф', 'url' => ['tax/index']],
+                                ['label' => 'Настройки', 'url' => ['settings/index']],
                             ],
                         ],
                         Yii::$app->user->isGuest ?

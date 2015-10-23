@@ -11,6 +11,9 @@
         <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Links'),['links/index']);?></h3>
     </div>
     <div class="col-sm-4">
+        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Files'),['files/index']);?></h3>
+    </div>
+    <div class="col-sm-4">
         <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Redirect Rules'),['redirect/index']);?></h3>
     </div>
     <div class="col-sm-4">
