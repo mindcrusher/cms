@@ -39,7 +39,7 @@ AppAsset::register($this);
                                 'data-toggle' => 'modal',
                                 'title' => 'Заявка онлайн',
                             ]],
-                            ['label' => 'Обратная связь', 'url' => ['/site/pending'], 'linkOptions' => [
+                            ['label' => 'Обратная связь', 'url' => ['/site/contact'], 'linkOptions' => [
                                 'class' =>  'visible-xs'
                             ]],
                             ['label' => 'Онлайн заявка', 'url' => ['/site/pending'], 'linkOptions' => [
