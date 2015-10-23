@@ -31,6 +31,12 @@ AppAsset::register($this);
                     ],
                 ]);
                 echo Nav::widget([
+                    'options' => ['class' => 'navbar-nav navbar-left'],
+                    'items' => [
+                        ['label' => 'Перейти на сайт', 'url' => '/', 'linkOptions' => ['target' => '_blank']]
+                    ]
+                ]);
+                echo Nav::widget([
                     'options' => ['class' => 'navbar-nav navbar-right'],
                     'items' => [
                         ['label' => 'Наполнение', 'items' => [
