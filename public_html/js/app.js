@@ -1,4 +1,9 @@
 jQuery(function(){
+
+    $('#menu button').click(function(){
+        $( "#menu .collapsible-area" ).toggle('fast');
+    });
+
     jQuery(document).on('click', '.showModalButton', function(){
         if (jQuery('#pending-form').data('bs.modal').isShown) {
             jQuery('#pending-form').find('#modalContent')

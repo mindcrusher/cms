@@ -14,48 +14,34 @@ h1, h2, h3, h4 {
 }
 
 /* Mobile Menu */
-#mobile_menu {
-    background: #eeeeee;
+#menu {
+    padding-bottom: 20px;
 }
-#mobile_menu header {
-    padding: 10px;
-    background: #909090;
+
+#menu button {
+    background: url("../img/menu-button.png") -1px 0px no-repeat;
+    padding-left: 47px;
+    height: 38px;
+    border: none;
+    font-size: 25px;
 }
-#mobile_menu ul,#mobile_menu li {
+
+#menu ul,#menu li {
     margin: 0;
     padding: 3px 10px;
+    list-style: none;
+}
+
+#menu li {
     border-bottom: 1px solid #ccc;
 }
-#panel {
-    padding: 10px;
+
+@media screen and (max-width:768px) {
+    #menu .collapsible-area {
+        display: none;
+    }
 }
 
-/* Slideout */
-
-.slideout-menu {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 0;
-    width: 256px;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    display: none;
-}
-
-.slideout-panel {
-    position:relative;
-    z-index: 1;
-    background: #ffffff;
-}
-
-.slideout-open,
-.slideout-open body {
-    overflow: hidden;
-}
-
-.slideout-open .slideout-menu {
-    display: block;
+.footer {
+    padding-top: 20px;
 }
