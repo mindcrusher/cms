@@ -22,7 +22,7 @@ AppAsset::register($this);
     <div class="container">
 
         <main id="panel">
-            <div class="row">
+            <div class="col-xs-12">
                 <?php
                 NavBar::begin(['brandLabel' => 'Taggerd', 'id' => 'navbar-main']);
                 echo Nav::widget([
@@ -92,16 +92,16 @@ AppAsset::register($this);
             echo raoul2000\widget\slideout\Slideout::widget([
                 'pluginOptions' => [
                     'panel' =>  new yii\web\JsExpression("document.getElementById('panel')"),
-                    'menu' => new yii\web\JsExpression("document.getElementById('menu')"),
+                    'menu' => new yii\web\JsExpression("document.getElementById('mobile_menu')"),
                     'padding' => 256,
                     'tolerance' => 70
                 ]
             ]);
 
             ?>
-            <nav id="menu">
+            <nav id="mobile_menu">
                 <header>
-                    <span class="h2">Главное меню</span>
+                    <span class="h4">Главное меню</span>
                 </header>
                 <?php
                 if(!empty(Yii::$app->controller->menu)) {

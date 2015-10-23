@@ -3,6 +3,23 @@
     background: none;
 }
 
+/* Mobile Menu */
+#mobile_menu {
+    background: #eeeeee;
+}
+#mobile_menu header {
+    padding: 10px;
+    background: #909090;
+}
+#mobile_menu ul,#mobile_menu li {
+    margin: 0;
+    padding: 3px 10px;
+    border-bottom: 1px solid #ccc;
+}
+#panel {
+    padding: 10px;
+}
+
 /* Slideout */
 
 .slideout-menu {
