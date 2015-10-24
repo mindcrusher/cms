@@ -17,6 +17,9 @@ h1, h2, h3, h4 {
 #menu {
     padding-bottom: 20px;
 }
+#menu .menu-group.last {
+    margin-top: -4px;
+}
 
 #menu button {
     background: url("../img/menu-button.png") -1px 0px no-repeat;

@@ -25,22 +25,16 @@ AppAsset::register($this);
             echo Nav::widget([
                 'items' => [
                     ['label' => 'Обратная связь', 'url' => ['/site/contact'], 'linkOptions' => [
-                        'class' =>  'showModalButton hidden-xs',
+                        'class' =>  'showModalButton',
                         'data-target' => '#pending-form',
                         'data-toggle' => 'modal',
                         'title' => 'Обратная связь',
                     ]],
                     ['label' => 'Онлайн заявка', 'url' => ['/site/pending'], 'linkOptions' => [
-                        'class' =>  'showModalButton hidden-xs',
+                        'class' =>  'showModalButton',
                         'data-target' => '#pending-form',
                         'data-toggle' => 'modal',
                         'title' => 'Заявка онлайн',
-                    ]],
-                    ['label' => 'Обратная связь', 'url' => ['/site/contact'], 'linkOptions' => [
-                        'class' =>  'visible-xs'
-                    ]],
-                    ['label' => 'Онлайн заявка', 'url' => ['/site/pending'], 'linkOptions' => [
-                        'class' =>  'visible-xs'
                     ]],
                     ['label' => 'Калькулятор', 'url' => ['/calc/default/index']],
                 ],
@@ -52,7 +46,7 @@ AppAsset::register($this);
         </div>
         <div class="row">
             <?php
-            $hasMenu = !empty(Yii::$app->controller->menu);
+            $hasMenu = !empty(Yii::$app->controller->menu[4]);
             if($hasMenu) {
             ?>
             <div id="menu" class="col-sm-3">
@@ -69,14 +63,30 @@ AppAsset::register($this);
                 <div class="row">
 
                     <div class="collapsible-area">
-                    <?php
+                    <div class="menu-group">
+                        <?php
                         echo Menu::widget(Yii::$app->controller->menu[4]['links']);
-                    ?>
+                        ?>
+                    </div>
+                    <div class="menu-group last">
+                        <?php
+                        echo Menu::widget([
+                            'items' => [
+                                ['label' => 'Обратная связь', 'url' => ['/site/contact']],
+                                ['label' => 'Онлайн заявка', 'url' => ['/site/pending']],
+                                ['label' => 'Калькулятор', 'url' => ['/calc/default/index']],
+                            ],
+                        ]);
+                        ?>
+                    </div>
+
                     </div>
                 </div>
             </div>
             <?php } ?>
-            <div class="col-xs-12 col-sm-<?=$hasMenu ? 9 : 12?>"><?=$content?></div>
+            <div class="col-xs-12 col-sm-<?=$hasMenu ? 9 : 12?>">
+                <?=$content?>
+            </div>
         </div>
         <div class="row footer">
             <div class="col-sm-4">
