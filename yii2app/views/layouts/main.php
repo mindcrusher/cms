@@ -68,7 +68,7 @@ AppAsset::register($this);
                         echo Menu::widget(Yii::$app->controller->menu[4]['links']);
                         ?>
                     </div>
-                    <div class="menu-group last">
+                    <div class="visible-xs menu-group last">
                         <?php
                         echo Menu::widget([
                             'items' => [
