@@ -1,0 +1,9 @@
+.catalog-menu ul, .catalog-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.catalog-menu li {
+    list-style: none;
+    padding-left: 10px;
+}
