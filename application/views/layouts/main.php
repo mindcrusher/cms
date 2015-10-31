@@ -55,7 +55,7 @@ AppAsset::register($this);
         </div>
         <div class="row">
             <footer class="text-center">
-                Footer
+                <?=Yii::$app->name?>
             </footer>
         </div>
     </div>
