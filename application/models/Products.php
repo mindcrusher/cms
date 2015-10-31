@@ -88,4 +88,24 @@ class Products extends \yii\db\ActiveRecord
         $this->slug = Helper::translit($this->title);
         return true;
     }
+
+    public function getPhotos()
+    {
+        return $this->hasMany(ProductPhotos::className(), ['product_id' => 'id']);
+    }
+
+    public function mainPhoto()
+    {
+        foreach ( $this->photos as $photo) {
+            if($photo->is_primary)
+                break;
+        }
+
+        return $photo;
+    }
+
+    public function hasPhotos()
+    {
+        return count($this->photos) > 0;
+    }
 }

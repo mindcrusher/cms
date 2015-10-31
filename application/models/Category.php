@@ -44,6 +44,8 @@ class Category extends ActiveRecord
             $sections[] = $cat->id;
         }
 
-        return CategoryProducts::find()->where(['in', 'category_id', $sections]);
+        return CategoryProducts::find()
+            ->where(['in', 'category_id', $sections])
+            ->groupBy('product_id');
     }
 }
