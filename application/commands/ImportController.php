@@ -42,16 +42,23 @@ class ImportController extends Controller
 
     public function actionForeignFiles()
     {
+        $root = \Yii::$app->params['webroot'];
         $files = Files::find()
             ->where('src like "%http%"')
             ->all();
 
         foreach ($files as $file) {
-            $src = $file->src;
-            $destination = $file->getPath();
-            if(copy($src, \Yii::$app->params['webroot'] . $destination)) {
-                $file->src = $destination;
-                var_dump($file->save());
+            $src = $file->origin;
+            $tmp = \Yii::getAlias('@runtime') . '/tmpFile'. uniqid();
+
+            if(copy($src, $tmp)) {
+                $file->hash = Files::hash($tmp);
+                $file->ext = Files::getExtension( $src );
+                $destination = $file->getPath();
+                if(rename( $tmp, $root . $destination )) {
+                    $file->src = $destination;
+                    var_dump($file->save());
+                }
             }
         }
     }

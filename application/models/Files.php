@@ -74,7 +74,7 @@ class Files extends \yii\db\ActiveRecord
         if(is_file($path)) {
             $i = pathinfo($path);
             $root = Yii::$app->params['webroot'];
-            $hash = md5_file($path);
+            $hash = self::hash($path);
 
             $this->origin = $path;
             $this->name = trim( empty($name) ? $i['basename'] : $name );
@@ -96,7 +96,7 @@ class Files extends \yii\db\ActiveRecord
 
     public function upload()
     {
-        $hash = md5_file($this->file->tempName);
+        $hash = self::hash($this->file->tempName);
         $exists = self::findOne(['hash' => $hash]);
         if (empty($exists)) {
             if (!empty($this->file)) {
@@ -120,5 +120,26 @@ class Files extends \yii\db\ActiveRecord
     public function afterDelete()
     {
         unlink(Yii::getAlias('@webroot') . $this->getPath());
+    }
+
+    /**
+     * Возвращает хеш файла
+     * @param $target
+     * @return string
+     */
+    public static function hash( $target )
+    {
+        return md5_file( $target );
+    }
+
+    /**
+     * Возвращает расширение файла
+     * @param $target
+     * @return mixed
+     */
+    public static function getExtension( $target )
+    {
+        $i = pathinfo($target);
+        return $i['extension'];
     }
 }
