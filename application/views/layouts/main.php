@@ -38,7 +38,7 @@ AppAsset::register($this);
             ?>
         </div>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <nav>
                     <?php
                     echo Menu::widget([
@@ -47,7 +47,7 @@ AppAsset::register($this);
                     ?>
                 </nav>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-9">
                 <main>
                     <?=$content?>
                 </main>

@@ -1,10 +1,11 @@
 <?php
 $product = $model->product;
 ?>
-<div class="col-sm-3">
-    <a href="<?=$product->getUrl()?>">
+<div class="col-sm-4">
+    <a style="height: 300px;display: block;" href="<?=$product->getUrl()?>">
         <figure>
-            <span class="h3"><?=$product->title?></span>
+            <?=\yii\bootstrap\Html::img($product->mainPhoto()->file->src)?>
+            <span class="h2"><?=$product->title?></span>
         </figure>
     </a>
 </div>

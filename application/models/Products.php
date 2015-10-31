@@ -91,7 +91,7 @@ class Products extends \yii\db\ActiveRecord
 
     public function getPhotos()
     {
-        return $this->hasMany(ProductPhotos::className(), ['product_id' => 'id']);
+        return $this->hasMany(ProductPhotos::className(), ['product_id' => 'id'])->innerJoin('files', 'product_photos.photo_id = files.id');
     }
 
     public function mainPhoto()
