@@ -42,7 +42,7 @@ AppAsset::register($this);
                 <nav>
                     <?php
                     echo Menu::widget([
-                        'items' => \app\models\Category::find()->where('lvl > 1')->tree(), // $treeData = Category::find()->tree();
+                        'items' => \app\models\Category::find()->where('lvl > 1')->tree(),
                     ]);
                     ?>
                 </nav>

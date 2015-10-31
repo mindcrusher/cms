@@ -10,7 +10,7 @@ echo TreeView::widget([
     'fontAwesome' => false,
     'isAdmin' => true,
     'displayValue' => 1,
-    'softDelete' => true,
+    'softDelete' => false,
     'showIDAttribute' => false,
     'alertFadeDuration' => 1000,
     'nodeView' => '@app/modules/admin/views/catalog/_form',

@@ -39,4 +39,20 @@ class ImportController extends Controller
             $file->importFile($path);
         }
     }
+
+    public function actionForeignFiles()
+    {
+        $files = Files::find()
+            ->where('src like "%http%"')
+            ->all();
+
+        foreach ($files as $file) {
+            $src = $file->src;
+            $destination = $file->getPath();
+            if(copy($src, \Yii::$app->params['webroot'] . $destination)) {
+                $file->src = $destination;
+                var_dump($file->save());
+            }
+        }
+    }
 }

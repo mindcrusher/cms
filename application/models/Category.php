@@ -8,8 +8,8 @@
 
 namespace app\models;
 
-use app\components\behaviors\UrlBehavior;
 use yii\db\ActiveRecord;
+use app\components\behaviors\UrlBehavior;
 use kgladkiy\behaviors\NestedSetBehavior;
 
 class Category extends ActiveRecord

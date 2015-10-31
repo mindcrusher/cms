@@ -50,8 +50,10 @@ class Files extends \yii\db\ActiveRecord
 
     public function getPath()
     {
-        $root = Yii::getAlias('@webroot');
+        $i = pathinfo($this->src);
+        $root = Yii::$app->params['webroot'];
         preg_match('#^(\S{3})(.+)$#',$this->hash, $s);
+        $this->ext = empty($this->ext) ? $i['extension'] : $this->ext;
         $directory = Yii::$app->params['storageDirectory'] . $s[1] . DIRECTORY_SEPARATOR;
         $src =  $directory . $s[2] . '.' .  $this->ext;
 

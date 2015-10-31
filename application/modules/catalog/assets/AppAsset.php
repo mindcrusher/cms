@@ -18,6 +18,7 @@ class AppAsset extends AssetBundle
     public $sourcePath = '@app/modules/catalog/assets/files';
 
     public $css = [
+        'css/catalog.css'
     ];
 
     public $js = [
