@@ -3,6 +3,7 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
+    'name' => 'Интернет магазин товаров для здоровья и косметики',
     'id' => 'basic',
     'language' => 'ru-RU',
     'basePath' => dirname(__DIR__),

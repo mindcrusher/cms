@@ -44,21 +44,29 @@ class ImportController extends Controller
     {
         $root = \Yii::$app->params['webroot'];
         $files = Files::find()
-            ->where('src like "%http%"')
+            ->where('origin like "%http%"')
             ->all();
 
         foreach ($files as $file) {
             $src = $file->origin;
             $tmp = \Yii::getAlias('@runtime') . '/tmpFile'. uniqid();
-
+            \Yii::info("Get $src");
             if(copy($src, $tmp)) {
                 $file->hash = Files::hash($tmp);
                 $file->ext = Files::getExtension( $src );
                 $destination = $file->getPath();
+                \Yii::info("try to save to $destination");
                 if(rename( $tmp, $root . $destination )) {
                     $file->src = $destination;
-                    var_dump($file->save());
+                    if($file->save()) {
+                        \Yii::info("Done");
+                    } else
+                        \Yii::error("Fail to save");
+                } else {
+                    \Yii::error("Fail to move to $destination");
                 }
+            } else {
+                \Yii::error("Fail to copy to $root$tmp");
             }
         }
     }
