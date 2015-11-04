@@ -27,3 +27,8 @@ img {
 .is_closed {
     opacity: 0.2;
 }
+
+.kv-detail-container {
+    overflow: visible;
+    border: none;
+}
