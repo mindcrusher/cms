@@ -6,7 +6,12 @@
     </div>
     <div class="col-sm-4">
         <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Catalog'),['catalog/index']);?></h3>
-        Управление страницами сайта
+        Разделы и содержание каталога
+    </div>
+
+    <div class="col-sm-4">
+        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Products'),['products/index']);?></h3>
+        Товары
     </div>
     <div class="col-sm-4">
         <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Pages'),['pages/index']);?></h3>

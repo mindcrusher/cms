@@ -2,6 +2,8 @@
 // VIEW - views/product/index.php
 use kartik\tree\TreeView;
 use app\models\Tree;
+$this->title = 'Catalog';
+$this->params['breadcrumbs'][] = Yii::t('app',$this->title );
 
 echo TreeView::widget([
     'query' => Tree::find()->addOrderBy('root, lft'),
