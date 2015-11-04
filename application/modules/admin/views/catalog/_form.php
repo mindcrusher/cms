@@ -8,12 +8,11 @@
 use kartik\form\ActiveForm;
 use kartik\tree\Module;
 use kartik\tree\TreeView;
-use yii\bootstrap\Alert;
-use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 use yii\helpers\Html;
-use yii\helpers\Url;
 use kartik\widgets\Select2;
+use yii\widgets\ListView;
+use yii\data\ActiveDataProvider;
 
 /**
  * @var yii\web\View            $this
@@ -207,3 +206,25 @@ echo $renderContent(Module::VIEW_PART_1);
  */
 ?>
 <?= $renderContent(Module::VIEW_PART_5) ?>
+
+<?=$this->render('_products', [
+    'model' => $node,
+    'relModel' => new \app\models\CategoryProducts()
+]);
+
+/**
+ * TODO: Получать товары без создания модели
+ */
+$category = \app\models\Category::findOne( $node->id );
+$dataProvider = new ActiveDataProvider([
+    'query' => $category->getProducts(),
+    'pagination' => [
+        'pageSize' => 20,
+    ],
+]);
+
+echo ListView::widget([
+    'dataProvider' => $dataProvider,
+    'itemView' => '_item',
+]);
+?>

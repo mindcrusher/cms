@@ -3,7 +3,7 @@ namespace app\models;
  
 use Yii;
  
-class Tree extends \yii\db\ActiveRecord
+class Tree extends Category
 {
     use \kartik\tree\models\TreeTrait {
         isDisabled as parentIsDisabled; // note the alias

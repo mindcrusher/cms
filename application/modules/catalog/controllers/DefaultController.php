@@ -19,12 +19,14 @@ class DefaultController extends Controller
 
     public function actionIndex()
     {
-        $this->actionCategory(1);
+        $this->actionCategory();
     }
 
-    public function actionCategory( $slug )
+    public function actionCategory( $slug = null)
     {
-        $category = Category::findOne( ['slug' => $slug] );
+        $condition = empty( $slug ) ? 1 : ['slug' => $slug];
+        $category = Category::findOne( $condition );
+
         $dataProvider = new ActiveDataProvider([
             'query' => $category->getProducts(),
             'pagination' => [

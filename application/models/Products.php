@@ -101,7 +101,7 @@ class Products extends \yii\db\ActiveRecord
                 break;
         }
 
-        return $photo;
+        return $photo->file;
     }
 
     public function hasPhotos()
