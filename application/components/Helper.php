@@ -65,7 +65,10 @@ class Helper
             "ї" => "yi", "Ї" => "yi",
             "є" => "e", "Є" => "e"
         );
-        return strtr($st, $replace);
+        $st = strtolower(strtr($st, $replace));
+        $st = preg_replace('#[^a-z0-9\-]#', '', $st);
+
+        return $st;
     }
     
     public static function formatPhone( $str )
