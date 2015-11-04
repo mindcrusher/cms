@@ -215,16 +215,19 @@ echo $renderContent(Module::VIEW_PART_1);
 /**
  * TODO: Получать товары без создания модели
  */
-$category = \app\models\Category::findOne( $node->id );
-$dataProvider = new ActiveDataProvider([
-    'query' => $category->getProducts(),
-    'pagination' => [
-        'pageSize' => 20,
-    ],
-]);
+if(!$node->isNewRecord) {
+    $category = \app\models\Category::findOne( $node->id );
+    $dataProvider = new ActiveDataProvider([
+        'query' => $category->getProducts(),
+        'pagination' => [
+            'pageSize' => 20,
+        ],
+    ]);
 
-echo ListView::widget([
-    'dataProvider' => $dataProvider,
-    'itemView' => '_item',
-]);
+    echo ListView::widget([
+        'dataProvider' => $dataProvider,
+        'itemView' => '_item',
+    ]);
+}
+
 ?>
