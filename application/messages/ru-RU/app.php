@@ -36,5 +36,8 @@ return [
     'Redirect Rules' => 'Перенаправление страниц',
     'Create Redirect Rules' => 'Создать правило',
     'Are you sure you want to delete this item?' => 'Вы действительно хотите удалить запись?',
-
+    'description' => 'Описание',
+    'condition' => 'Состав',
+    'result' => 'Результат',
+    'applyment' => 'Применение',
 ];

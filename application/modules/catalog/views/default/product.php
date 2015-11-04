@@ -28,3 +28,24 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-sm-12">
+        <?php
+        $items = [];
+        $tabs = ['description','condition', 'result', 'applyment'];
+
+        foreach ($tabs as $i => $tab) {
+            $items[] = [
+                'label' => Yii::t('app', $tab),
+                'content' => $model->$tab,
+                'active' => $i === 0
+            ];
+        }
+
+
+        echo \yii\bootstrap\Tabs::widget([
+            'items' => $items
+            ]);
+        ?>
+    </div>
+</div>
