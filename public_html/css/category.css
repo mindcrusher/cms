@@ -7,3 +7,8 @@
     list-style: none;
     padding-left: 10px;
 }
+
+.product .image {
+    width: 200px;
+    height: 220px;
+}
