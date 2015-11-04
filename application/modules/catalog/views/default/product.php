@@ -10,7 +10,7 @@
     <div class="col-sm-4">
         <?php
         if($model->hasPhotos()) {
-            echo \yii\bootstrap\Html::img($model->mainPhoto()->file->src);
+            echo \yii\bootstrap\Html::img($model->mainPhoto()->src);
             foreach($model->photos as $photo) {
                 echo \yii\bootstrap\Html::a('', $photo->file->src);
             }
