@@ -69,7 +69,7 @@ class Products extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getProductOffers()
+    public function getOffers()
     {
         return $this->hasMany(ProductOffer::className(), ['product_id' => 'id']);
     }

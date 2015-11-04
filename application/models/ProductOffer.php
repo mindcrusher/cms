@@ -70,4 +70,9 @@ class ProductOffer extends \yii\db\ActiveRecord
     {
         return new ProductOfferQuery(get_called_class());
     }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
 }

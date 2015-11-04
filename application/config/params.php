@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'adminEmail' => 'i.mazikin@gmail.com',
+    'adminEmail' => 'wmyd@ya.ru',
     'ownerEmail' => 'wmyd@ya.ru',
     'isUnderConstruction' => false,
     'webroot' => realpath(dirname(__FILE__) . '/../../public_html/'),

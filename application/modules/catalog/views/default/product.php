@@ -11,20 +11,18 @@
         <?php
         if($model->hasPhotos()) {
             echo \yii\bootstrap\Html::img($model->mainPhoto()->src);
-            foreach($model->photos as $photo) {
-                echo \yii\bootstrap\Html::a('', $photo->file->src);
-            }
         }
-
         ?>
     </div>
     <div class="col-sm-8">
         <h1><?=$model->title?></h1>
         <div class="row">
+            <?php foreach( $model->offers as $offer) {?>
             <div class="col-xs-6 text-right">Цена:</div>
             <div class="col-xs-6 text-left">
-                <?=$model->price?>
+                <?=$offer->price;?>
             </div>
+            <? } ?>
         </div>
     </div>
 </div>

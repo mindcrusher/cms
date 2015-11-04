@@ -7,7 +7,7 @@ $product = $model->product;
             <div class="image col-sm-12">
                 <?=\yii\bootstrap\Html::img($product->mainPhoto()->src)?>
             </div>
-            <div class="col-sm-12 h5"><?=$product->title?></div>
+            <div class="description col-sm-12"><?=$product->title?></div>
         </figure>
     </a>
 </div>
