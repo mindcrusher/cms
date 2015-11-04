@@ -28,7 +28,7 @@ class DefaultController extends Controller
         $category = Category::findOne( $condition );
 
         $dataProvider = new ActiveDataProvider([
-            'query' => $category->getProducts(),
+            'query' => $category->getProducts()->andWhere('is_active = 1'),
             'pagination' => [
                 'pageSize' => self::PAGE_SIZE,
             ],

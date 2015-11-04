@@ -37,7 +37,7 @@ class Category extends ActiveRecord
         return new CategoryQuery(get_called_class());
     }
 
-    public function getProducts( $depth = null )
+    public function getProducts()
     {
         return CategoryProducts::find()
             ->where(['in', 'category_id', $this->getNestedCategories()])
