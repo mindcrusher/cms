@@ -75,6 +75,14 @@ class Products extends \yii\db\ActiveRecord
     }
 
     /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategories()
+    {
+        return $this->hasMany(CategoryProducts::className(), ['product_id' => 'id']);
+    }
+
+    /**
      * @inheritdoc
      * @return ProductsQuery the active query used by this AR class.
      */

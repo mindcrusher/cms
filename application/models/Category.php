@@ -39,23 +39,31 @@ class Category extends ActiveRecord
 
     public function getProducts( $depth = null )
     {
-        $sections = [$this->id];
-        $descendants = $this->descendants($depth)->all();
-        foreach ($descendants as $cat) {
-            $sections[] = $cat->id;
-        }
-
         return CategoryProducts::find()
-            ->where(['in', 'category_id', $sections])
+            ->where(['in', 'category_id', $this->getNestedCategories()])
             ->groupBy('product_id');
     }
 
     public function getFreeProducts()
     {
         return Products::find()
-            ->select(['id as value', 'title as  label', 'id'])
+            ->select(['products.id as value', 'title as  label', 'products.id'])
+            ->joinWith('categories')
+            ->where(['not in', 'category_id', $this->getNestedCategories()])
+            ->orWhere('category_products.id is null')
             ->asArray()
             ->all();
+    }
+
+    public function getNestedCategories()
+    {
+        $sections = [$this->id];
+        $descendants = $this->children()->all();
+        foreach ($descendants as $cat) {
+            $sections[] = $cat->id;
+        }
+
+        return $sections;
     }
 
     public function beforeSave( $insert )
