@@ -7,7 +7,9 @@
 
 namespace app\commands;
 
+use app\components\Helper;
 use app\models\Files;
+use app\models\Products;
 use yii\console\Controller;
 
 /**
@@ -69,5 +71,13 @@ class ImportController extends Controller
                 \Yii::error("Fail to copy to $root$tmp");
             }
         }
+    }
+
+    public function actionUpdateProductSlug()
+    {
+        foreach (Products::find()->all() as $product) {
+            var_dump($product->save());
+        }
+
     }
 }

@@ -93,7 +93,7 @@ class Products extends \yii\db\ActiveRecord
 
     public function beforeSave( $insert )
     {
-        $this->slug = Helper::translit($this->title);
+        $this->slug = strtolower(Helper::translit($this->title));
         return true;
     }
 
