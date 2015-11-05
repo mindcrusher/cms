@@ -1,10 +1,10 @@
 <?php
-use app\modules\cart\controllers\DefaultController;
+
 use \yii\helpers\Html;
-use \app\modules\cart\Asset;
+use \app\modules\cart\MainAsset;
 
 echo Html::a('Оформить заказ',['/cart/checkout/index']);
-Asset::register($this);
+MainAsset::register($this);
 ?>
 <script id="cart__main-template-state" type="text/template">
 	<div class='row'>
