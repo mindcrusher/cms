@@ -5,6 +5,7 @@ namespace app\models;
 use app\components\Helper;
 use app\components\behaviors\UrlBehavior;
 use Yii;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "products".
@@ -94,12 +95,6 @@ class Products extends \yii\db\ActiveRecord
         return new ProductsQuery(get_called_class());
     }
 
-    public function beforeSave( $insert )
-    {
-        $this->slug = Helper::translit($this->title);
-        return true;
-    }
-
     public function getPhotos()
     {
         return $this->hasMany(ProductPhotos::className(), ['product_id' => 'id'])->innerJoin('files', 'product_photos.photo_id = files.id');
@@ -118,5 +113,22 @@ class Products extends \yii\db\ActiveRecord
     public function hasPhotos()
     {
         return count($this->photos) > 0;
+    }
+
+    public function beforeSave( $insert )
+    {
+        $alias = Helper::translit($this->title);
+
+        if(!empty($this->slug)) {
+            $r = new RedirectRules();
+            $r->from = Url::to($this->getUrl());
+            $this->slug = $alias;
+            $r->status_code = RedirectRules::REDIRECT_STATUS_PERMANENT;
+            $r->to = Url::to($this->getUrl());
+            $r->save();
+        } else {
+            $this->alias = $alias;
+        }
+        return true;
     }
 }

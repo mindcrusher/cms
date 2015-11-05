@@ -14,6 +14,9 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <?php
+    echo \app\modules\cart\widgets\Cart::widget()
+    ?>
     <?php $this->head() ?>
 </head>
 <body>
@@ -38,15 +41,13 @@ AppAsset::register($this);
             ?>
         </div>
         <div class="row">
-            <div class="col-sm-3">
-                <nav>
-                    <?php
-                    echo Menu::widget([
-                        'items' => \app\models\Category::find()->where('lvl > 1')->tree(),
-                    ]);
-                    ?>
-                </nav>
-            </div>
+            <nav class="col-sm-3">
+            <?php
+            echo Menu::widget([
+                'items' => \app\models\Category::find()->where('lvl > 1')->tree(),
+            ]);
+            ?>
+            </nav>
             <div class="col-sm-9">
                 <main>
                     <?=$content?>
@@ -60,12 +61,24 @@ AppAsset::register($this);
         </div>
     </div>
 <?php $this->endBody() ?>
+<script type="text/template" id="dialog-offers">
+    <form>
+        <div class="form-group">
+            <label>Выберите:</label>
+            <% _.each(offers, function( offer ){%>
+                <a href="#"
+                   class="<?= \app\modules\cart\widgets\Add::CSS_SELECT_CLASS ?> <?= \app\modules\cart\widgets\Add::CSS_MANAGE_CLASS ?>"
+                   data-offer_id="<%= offer.id %>"
+                    ><%= offer.title %></a>
+            <% });%>
+        </div>
+
+    </form>
+</script>
 <?php
 yii\bootstrap\Modal::begin([
     'headerOptions' => ['id' => 'modalHeader'],
     'id' => 'pending-form',
-    //'size' => 'modal-md',
-    //'clientOptions' => ['backdrop' => 'static', 'keyboard' => true]
 ]);
 echo "<div id='modalContent'>Подождите...</div>";
 yii\bootstrap\Modal::end();

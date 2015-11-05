@@ -84,4 +84,9 @@ class Helper
     {
         return $model->$attribute ? 'Да' : 'Нет';
     }
+
+    public static function redirectControl($url)
+    {
+
+    }
 }

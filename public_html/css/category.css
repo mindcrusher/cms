@@ -5,7 +5,13 @@
 
 .catalog-menu li {
     list-style: none;
-    padding-left: 10px;
+    padding-left: 0px;
+}
+
+.catalog-menu li a {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #909090;
 }
 
 .product .image {
@@ -18,3 +24,15 @@
     height: 20px;
     overflow: hidden;
 }
+/*
+.catalog-menu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    background: #ffffff;
+    z-index: 1;
+    border-right: 1px solid #909090;
+}
+*/
+

@@ -15,7 +15,10 @@ $config = [
         'catalog' => [
             'class' => 'app\modules\catalog\Module',
         ],
-         'treemanager' =>  [
+        'cart' => [
+            'class' => 'app\modules\cart\Module',
+        ],
+        'treemanager' =>  [
             'class' => '\kartik\tree\Module',
         ],
         'redactor' => [
@@ -33,12 +36,19 @@ $config = [
         ],
     ],
     'components' => [
+        'cart' => [
+            'class' => 'yz\shoppingcart\ShoppingCart',
+            'cartId' => 'cart',
+        ],
         'assetManager' => [
             'linkAssets' => true,
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'jOgCCKREGYoAUMOxGhDzUcLrabftZRxO',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -68,6 +78,12 @@ $config = [
                 'info/<alias>' => 'site/info',
                 'catalog/<slug>' => 'catalog/default/category',
                 'catalog/product/<slug>' => 'catalog/default/product',
+                ['class' => 'yii\rest\UrlRule',
+                    'controller' => [
+                        'cart/api' => 'cart/api',
+                        'catalog/api' => 'catalog/api',
+                    ]
+                ],
             ]
         ],
         'log' => [

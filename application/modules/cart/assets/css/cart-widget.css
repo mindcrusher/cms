@@ -1,0 +1,23 @@
+.cart__widget {
+    width: 420px;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    background: #eee;
+    z-index: 9999;
+}
+
+.cart__widget-info {
+	display: none;
+}
+
+.cart__control {
+    cursor: pointer;
+}
+
+.cart__control_qty {
+    width: 50px;
+}
+.cart__widget-cost {
+    font-weight: bold;
+}

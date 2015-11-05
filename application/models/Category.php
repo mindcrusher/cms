@@ -46,10 +46,19 @@ class Category extends ActiveRecord
 
     public function getFreeProducts()
     {
+        /**
+         * TODO: сделать унифицированный вызов через self::getNestedCategories()
+         */
+        $sections = [$this->id];
+        $descendants = $this->children()->all();
+        foreach ($descendants as $cat) {
+            $sections[] = $cat->id;
+        }
+
         return Products::find()
             ->select(['products.id as value', 'title as  label', 'products.id'])
             ->joinWith('categories')
-            ->where(['not in', 'category_id', $this->getNestedCategories()])
+            ->where(['not in', 'category_id', $sections])
             ->orWhere('category_products.id is null')
             ->asArray()
             ->all();
@@ -58,7 +67,7 @@ class Category extends ActiveRecord
     public function getNestedCategories()
     {
         $sections = [$this->id];
-        $descendants = $this->children()->all();
+        $descendants = $this->descendants()->all();
         foreach ($descendants as $cat) {
             $sections[] = $cat->id;
         }

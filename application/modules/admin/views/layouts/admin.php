@@ -48,14 +48,6 @@ AppAsset::register($this);
                             ['label' => Yii::t('app', 'Redirect Rules'), 'url' => ['redirect/index']],
                             ['label' => Yii::t('app', 'Contacts'), 'url' => ['contact/index']],
                         ]],
-                        ['label' => 'Калькулятор', 'items' => [
-                                ['label' => 'Базовый тариф', 'url' => ['mode/index']],
-                                ['label' => 'Опции', 'url' => ['modifications/index']],
-                                ['label' => 'Группы опций', 'url' => ['groups/index']],
-                                ['label' => 'Тариф', 'url' => ['tax/index']],
-                                ['label' => 'Настройки', 'url' => ['settings/index']],
-                            ],
-                        ],
                         Yii::$app->user->isGuest ?
                             '' :
                             ['label' => 'Выйти',
