@@ -8,6 +8,14 @@
 }
 .catalog-menu li li a {
     display: block;
+    text-transform: uppercase;
+}
+
+
+.catalog-menu li li li a {
+    display: block;
+    text-transform: none;
+    padding-left: 10px;
 }
 
 .catalog-menu li ul {
