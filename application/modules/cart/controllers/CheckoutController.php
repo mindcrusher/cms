@@ -21,9 +21,11 @@ class CheckoutController extends Controller
         $checkout = new CheckoutForm();
         if(\Yii::$app->user->id) {
             $customer = Customers::findOne(['user_id' => \Yii::$app->user->id]);
-            $checkout->attributes = $customer->attributes;
-            $checkout->zipcode = $customer->getPrimaryAddress()->zipcode;
-            $checkout->formatted_address = $customer->getPrimaryAddress()->formatted;
+            if($customer) {
+                $checkout->attributes = $customer->attributes;
+                $checkout->zipcode = $customer->getPrimaryAddress()->zipcode;
+                $checkout->formatted_address = $customer->getPrimaryAddress()->formatted;
+            }
         }
 
         if(\Yii::$app->request->isPost) {

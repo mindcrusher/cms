@@ -8,6 +8,10 @@
     padding-left: 0px;
 }
 
+.catalog-menu li ul {
+    display: none;
+}
+
 .catalog-menu li a {
     display: block;
     padding: 10px 0;

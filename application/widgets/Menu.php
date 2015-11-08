@@ -19,7 +19,7 @@ class Menu extends NestedList
 
     public function run()
     {
-        $this->items = Category::find()->where('lvl > 0')->tree();
+        $this->items = Category::find()->roots()->tree();
         $this->renderInput();
     }
 

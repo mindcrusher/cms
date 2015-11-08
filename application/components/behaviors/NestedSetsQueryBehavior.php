@@ -33,7 +33,7 @@ class NestedSetsQueryBehavior extends NestedSetQueryBehavior
                 'id' => $item->id,
                 'url' => $item->getUrl(),
                 'name' => $item->{$item->titleAttribute},
-                'children' => (!$maxLevel || $item->level < $maxLevel) ? $this->tree($item, $maxLevel) : null,
+                'children' => (!$maxLevel || $item->level < $maxLevel) ? $this->tree($item, $maxLevel) : 0,
             ];
         }
 
