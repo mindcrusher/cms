@@ -14,6 +14,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <?php
     echo \app\modules\cart\widgets\Cart::widget()
     ?>
