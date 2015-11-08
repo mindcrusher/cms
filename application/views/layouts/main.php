@@ -43,9 +43,7 @@ AppAsset::register($this);
         <div class="row">
             <nav class="col-sm-3">
             <?php
-            echo Menu::widget([
-                'items' => \app\models\Category::find()->where('lvl > 1')->tree(),
-            ]);
+            echo Menu::widget();
             ?>
             </nav>
             <div class="col-sm-9">

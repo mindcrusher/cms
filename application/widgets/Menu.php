@@ -10,15 +10,17 @@ namespace app\widgets;
 
 use kgladkiy\widgets\NestedList;
 use yii\bootstrap\Html;
+use \app\models\Category;
 
 class Menu extends NestedList
 {
     public $actions = false;
     public $wrapClass = 'catalog-menu';
 
-    public function registerAssets()
+    public function run()
     {
-        return false;
+        $this->items = Category::find()->where('lvl > 0')->tree();
+        $this->renderInput();
     }
 
     protected function buildListItem($item)

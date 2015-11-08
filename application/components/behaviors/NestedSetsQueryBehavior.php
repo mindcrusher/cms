@@ -19,7 +19,7 @@ class NestedSetsQueryBehavior extends NestedSetQueryBehavior
 
         if ($root === false) {
             $ownerClass = $this->owner->modelClass;
-            $items = $ownerClass::find()->roots()->all();
+            $items = $this->owner->all();
         } else {
             if (!$maxLevel || $root->level <= $maxLevel) {
                 $items = $root->children()->all();
