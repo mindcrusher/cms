@@ -127,7 +127,7 @@ class Products extends \yii\db\ActiveRecord
             $r->to = Url::to($this->getUrl());
             $r->save();
         } else {
-            $this->alias = $alias;
+            $this->slug = $alias;
         }
         return true;
     }
